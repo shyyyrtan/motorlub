@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про нас — MOTORLUB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">MOTOR<span>LUB</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo">MOTOR<span>LUB</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="catalog.html">Каталог</a></li>
+    <li><a href="about.html" class="active">Про нас</a></li>
+    <li><a href="contacts.html">Контакти</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+380991234567" class="nav-phone">📞 +38 (099) 123-45-67</a>
+    <button class="burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Головна</a>
+  <a href="catalog.html" onclick="toggleMenu()">Каталог</a>
+  <a href="about.html" onclick="toggleMenu()">Про нас</a>
+  <a href="contacts.html" onclick="toggleMenu()">Контакти</a>
+  <a href="tel:+380991234567" class="mm-phone">📞 +38 (099) 123-45-67</a>
+</div>
+
+<!-- ABOUT HERO -->
+<div style="padding-top:68px; border-bottom:1px solid var(--border); background:linear-gradient(180deg,#111 0%,var(--bg) 100%);">
+  <div class="about-hero">
+    <div class="about-hero-text fade-up">
+      <div class="section-eyebrow">// хто ми</div>
+      <h1>ПРО <span class="gold-text">MOTORLUB</span></h1>
+      <p>MOTORLUB — це команда фахівців з автохімії та мастильних матеріалів, яка з 2019 року допомагає власникам авто, аграрним підприємствам і транспортним компаніям правильно підбирати оливи.</p>
+      <p>Ми є офіційними партнерами провідних світових брендів: Mobil, Shell, Castrol, Liqui Moly, Total, ZF. Кожен товар постачається з повним пакетом документів і сертифікатів.</p>
+      <p>Наша місія — щоб кожен двигун в Україні отримав правильне мастило і служив якомога довше.</p>
+    </div>
+    <div class="about-hero-visual fade-up">
+      <div class="ahv-big">OIL<br>PRO</div>
+      <div class="ahv-badge">5+ РОКІВ ДОСВІДУ</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num" data-target="52">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Позицій товарів</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num" data-target="6">0</div>
+    <div class="stat-plus"></div>
+    <div class="stat-lbl">Топових брендів</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num" data-target="1500">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Задоволених клієнтів</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num" data-target="5">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Років на ринку</div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="about-timeline">
+  <h2 class="at-title fade-up">НАША <span class="gold-text">ІСТОРІЯ</span></h2>
+  <div class="at-items">
+    <div class="at-item fade-up">
+      <div class="at-year">2019</div>
+      <div class="at-content">
+        <h3>Заснування компанії</h3>
+        <p>MOTORLUB розпочав роботу як невеликий магазин моторних олив для легкових автомобілів. Перший склад — 40 м², 20 позицій товарів. Перші клієнти — автосервіси міста.</p>
+      </div>
+    </div>
+    <div class="at-item fade-up">
+      <div class="at-year">2020</div>
+      <div class="at-content">
+        <h3>Розширення асортименту</h3>
+        <p>Підписання партнерських угод із офіційними дистриб'юторами Shell та Castrol. Додали трансмісійні рідини та антифризи. Перші оптові замовлення від СТО.</p>
+      </div>
+    </div>
+    <div class="at-item fade-up">
+      <div class="at-year">2021</div>
+      <div class="at-content">
+        <h3>Сільськогосподарський напрямок</h3>
+        <p>Вийшли на ринок аграрної техніки — оливи для тракторів МТЗ, ЮМЗ, John Deere. Перші великі замовлення від фермерських господарств. Договір з дистриб'ютором Total.</p>
+      </div>
+    </div>
+    <div class="at-item fade-up">
+      <div class="at-year">2022</div>
+      <div class="at-content">
+        <h3>Важкий рік — ми продовжуємо</h3>
+        <p>Незважаючи на виклики повномасштабного вторгнення, MOTORLUB продовжив роботу. Налагодили нові логістичні ланцюжки, почали постачати оливи для техніки ЗСУ та волонтерських організацій.</p>
+      </div>
+    </div>
+    <div class="at-item fade-up">
+      <div class="at-year">2023</div>
+      <div class="at-content">
+        <h3>Вантажний напрямок і онлайн</h3>
+        <p>Запуск напрямку для вантажівок і фур. Партнерство з Mobil і Liqui Moly. Запуск онлайн-магазину. Доставка Новою Поштою по всій Україні.</p>
+      </div>
+    </div>
+    <div class="at-item fade-up">
+      <div class="at-year">2024</div>
+      <div class="at-content">
+        <h3>Зростання і розвиток</h3>
+        <p>52 позиції в асортименті. 1500+ задоволених клієнтів. Новий сайт з повним каталогом. Безкоштовна консультація для кожного клієнта. Ми продовжуємо зростати!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="about-team">
+  <div class="about-team-inner">
+    <div class="section-eyebrow fade-up">// команда</div>
+    <h2 class="fade-up" style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;margin-bottom:0;">НАША <span class="gold-text">КОМАНДА</span></h2>
+    <div class="team-grid">
+      <div class="team-card fade-up">
+        <div class="tc-avatar">👨‍💼</div>
+        <div class="tc-name">Олексій Коваленко</div>
+        <div class="tc-role">Засновник / CEO</div>
+        <div class="tc-desc">15 років у авторинку. Знає все про мастила від мінералки до синтетики. Особисто перевіряє кожного постачальника.</div>
+      </div>
+      <div class="team-card fade-up">
+        <div class="tc-avatar">👨‍🔧</div>
+        <div class="tc-name">Дмитро Сидоренко</div>
+        <div class="tc-role">Технічний спеціаліст</div>
+        <div class="tc-desc">Колишній автомеханік з 12-річним стажем. Підбирає оливи для будь-якого двигуна — від легкового до сільськогосподарського.</div>
+      </div>
+      <div class="team-card fade-up">
+        <div class="tc-avatar">👩‍💻</div>
+        <div class="tc-name">Марина Петренко</div>
+        <div class="tc-role">Менеджер з продажу</div>
+        <div class="tc-desc">Відповідає за оптові замовлення та корпоративних клієнтів. Знайде найкращу ціну для великих партій.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="about-values">
+  <div class="section-eyebrow fade-up">// наші цінності</div>
+  <h2 class="fade-up" style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;margin-bottom:0;">ПРИНЦИПИ <span class="gold-text">РОБОТИ</span></h2>
+  <div class="values-grid">
+    <div class="val-card fade-up">
+      <div class="val-icon">🏆</div>
+      <div class="val-name">ЯКІСТЬ</div>
+      <div class="val-desc">Тільки оригінальна продукція від офіційних дистриб'юторів. Ніяких підробок і сумнівних джерел.</div>
+    </div>
+    <div class="val-card fade-up">
+      <div class="val-icon">🤝</div>
+      <div class="val-name">ЧЕСНІСТЬ</div>
+      <div class="val-desc">Говоримо правду про товар — що підходить, що ні. Не продаємо те, що не відповідає потребам клієнта.</div>
+    </div>
+    <div class="val-card fade-up">
+      <div class="val-icon">⚡</div>
+      <div class="val-name">ШВИДКІСТЬ</div>
+      <div class="val-desc">Відправка в день замовлення. Відповідь на повідомлення — протягом 15 хвилин у робочий час.</div>
+    </div>
+    <div class="val-card fade-up">
+      <div class="val-icon">🇺🇦</div>
+      <div class="val-name">УКРАЇНА</div>
+      <div class="val-desc">Ми українська компанія. Платимо податки, підтримуємо ЗСУ і будуємо майбутнє своєї країни.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner fade-up">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>ГОТОВІ ЗРОБИТИ ЗАМОВЛЕННЯ?</h2>
+      <p>Зателефонуйте або перегляньте каталог — знайдемо потрібне мастило разом</p>
+    </div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="tel:+380991234567" class="btn-gold-lg">📞 Зателефонувати</a>
+      <a href="catalog.html" class="btn-ghost" style="padding:18px 36px;font-size:16px;">Каталог →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">MOTOR<span>LUB</span></div>
+      <p>Оригінальні мастила та оливи для авто, сільської техніки та вантажівок.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="fn-col">
+        <div class="fn-title">Навігація</div>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="about.html">Про нас</a>
+        <a href="contacts.html">Контакти</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-title">Категорії</div>
+        <a href="catalog.html?cat=motor">Моторні оливи</a>
+        <a href="catalog.html?cat=agro">Сільська техніка</a>
+        <a href="catalog.html?cat=truck">Вантажівки</a>
+        <a href="catalog.html?cat=antifreeze">Антифризи</a>
+        <a href="catalog.html?cat=grease">Змазки</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-title">Контакти</div>
+        <a href="tel:+380991234567">📞 +38 (099) 123-45-67</a>
+        <a href="#">Telegram</a>
+        <a href="#">Viber</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 MOTORLUB. Всі права захищені.</span>
+    <span>Розроблено з ❤️ в Україні</span>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

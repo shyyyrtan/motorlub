@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOTORLUB — Мастила та оливи для авто і техніки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">MOTOR<span>LUB</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo">MOTOR<span>LUB</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Головна</a></li>
+    <li><a href="catalog.html">Каталог</a></li>
+    <li><a href="about.html">Про нас</a></li>
+    <li><a href="contacts.html">Контакти</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+380991234567" class="nav-phone">
+      <span class="phone-icon">📞</span> +38 (099) 123-45-67
+    </a>
+    <button class="burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Головна</a>
+  <a href="catalog.html" onclick="toggleMenu()">Каталог</a>
+  <a href="about.html" onclick="toggleMenu()">Про нас</a>
+  <a href="contacts.html" onclick="toggleMenu()">Контакти</a>
+  <a href="tel:+380991234567" class="mm-phone">📞 +38 (099) 123-45-67</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      ОФІЦІЙНИЙ ДИСТРИБ'ЮТОР · ОРИГІНАЛЬНА ПРОДУКЦІЯ
+    </div>
+    <h1 class="hero-title">
+      МАСТИЛА<br>
+      <span class="gold-text">ДЛЯ АВТО</span><br>
+      ТА ТЕХНІКИ
+    </h1>
+    <p class="hero-subtitle">
+      Моторні оливи, трансмісійні рідини, антифризи, змазки —<br>
+      все для вашого авто, трактора та вантажівки
+    </p>
+    <div class="hero-actions">
+      <a href="catalog.html" class="btn-gold">Весь каталог</a>
+      <a href="contacts.html" class="btn-ghost">Отримати консультацію</a>
+    </div>
+    <div class="hero-brands">
+      <span>Mobil</span>
+      <span>Castrol</span>
+      <span>Shell</span>
+      <span>Liqui Moly</span>
+      <span>Total</span>
+      <span>ZF</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-oil-drop"></div>
+    <div class="hero-circle c1"></div>
+    <div class="hero-circle c2"></div>
+    <div class="hero-circle c3"></div>
+    <div class="viscosity-label">5W-40</div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num" data-target="50">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Брендів</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num" data-target="200">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Позицій товарів</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num" data-target="1500">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Задоволених клієнтів</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num" data-target="5">0</div>
+    <div class="stat-plus">+</div>
+    <div class="stat-lbl">Років досвіду</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div class="section-eyebrow">// категорії</div>
+      <h2>ДЛЯ БУДЬ-ЯКОЇ <span class="gold-text">ТЕХНІКИ</span></h2>
+    </div>
+    <div class="categories-grid fade-up">
+      <a href="catalog.html?cat=motor" class="cat-card cat-featured">
+        <div class="cat-icon">🔧</div>
+        <div class="cat-info">
+          <div class="cat-name">Моторні оливи</div>
+          <div class="cat-count">24 товари</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </a>
+      <a href="catalog.html?cat=agro" class="cat-card">
+        <div class="cat-icon">🚜</div>
+        <div class="cat-info">
+          <div class="cat-name">Сільська техніка</div>
+          <div class="cat-count">8 товарів</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </a>
+      <a href="catalog.html?cat=truck" class="cat-card">
+        <div class="cat-icon">🚛</div>
+        <div class="cat-info">
+          <div class="cat-name">Вантажівки / Фури</div>
+          <div class="cat-count">10 товарів</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </a>
+      <a href="catalog.html?cat=trans" class="cat-card">
+        <div class="cat-icon">⚙️</div>
+        <div class="cat-info">
+          <div class="cat-name">Трансмісійні</div>
+          <div class="cat-count">7 товарів</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </a>
+      <a href="catalog.html?cat=antifreeze" class="cat-card">
+        <div class="cat-icon">🧊</div>
+        <div class="cat-info">
+          <div class="cat-name">Антифризи</div>
+          <div class="cat-count">6 товарів</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </a>
+      <a href="catalog.html?cat=grease" class="cat-card">
+        <div class="cat-icon">🛢️</div>
+        <div class="cat-info">
+          <div class="cat-name">Змазки та спреї</div>
+          <div class="cat-count">8 товарів</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="featured-section">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div class="section-eyebrow">// хіти продажів</div>
+      <h2>ТОПОВІ <span class="gold-text">ТОВАРИ</span></h2>
+      <a href="catalog.html" class="view-all-link">Весь каталог →</a>
+    </div>
+    <div class="products-grid fade-up" id="featuredGrid">
+      <!-- JS insert -->
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="container">
+    <div class="why-grid fade-up">
+      <div class="why-text">
+        <div class="section-eyebrow">// чому ми</div>
+        <h2>ЯКІСТЬ, ЯКІЙ <span class="gold-text">ДОВІРЯЮТЬ</span></h2>
+        <p>П'ять років ми постачаємо оригінальні мастила для автомобілів, тракторів і вантажівок по всій Україні. Ніяких підробок — тільки сертифікована продукція від офіційних дистриб'юторів.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-icon">✓</div>
+            <div>
+              <strong>100% Оригінал</strong>
+              <p>Сертифікати та документи на кожну партію</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📦</div>
+            <div>
+              <strong>Швидка доставка</strong>
+              <p>Нова Пошта по всій Україні. Відправка в день замовлення</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💬</div>
+            <div>
+              <strong>Безкоштовна консультація</strong>
+              <p>Підберемо мастило під вашу марку авто і умови</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🔄</div>
+            <div>
+              <strong>Гарантія повернення</strong>
+              <p>Повернемо гроші якщо не підійшло</p>
+            </div>
+          </div>
+        </div>
+        <a href="about.html" class="btn-gold" style="margin-top:32px;display:inline-block;">Детальніше про нас</a>
+      </div>
+      <div class="why-visual fade-up">
+        <div class="why-card wc1">
+          <div class="wc-icon">🏆</div>
+          <div class="wc-title">Топ бренди</div>
+          <div class="wc-sub">Mobil, Shell, Castrol, Liqui Moly...</div>
+        </div>
+        <div class="why-card wc2">
+          <div class="wc-icon">🇺🇦</div>
+          <div class="wc-title">Доставка по Україні</div>
+          <div class="wc-sub">Нова Пошта · Укрпошта</div>
+        </div>
+        <div class="why-card wc3">
+          <div class="wc-icon">⚡</div>
+          <div class="wc-title">Відправка від 1 дня</div>
+          <div class="wc-sub">В наявності · Під замовлення</div>
+        </div>
+        <div class="why-big-num">200+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner fade-up">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>НЕ ЗНАЄТЕ ЯКЕ МАСТИЛО ПІДІЙДЕ?</h2>
+      <p>Телефонуйте — підберемо за маркою авто, роком випуску і умовами експлуатації</p>
+    </div>
+    <a href="tel:+380991234567" class="btn-gold-lg">📞 +38 (099) 123-45-67</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">MOTOR<span>LUB</span></div>
+      <p>Оригінальні мастила та оливи для авто, сільської техніки та вантажівок. Доставка по всій Україні.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="fn-col">
+        <div class="fn-title">Навігація</div>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="about.html">Про нас</a>
+        <a href="contacts.html">Контакти</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-title">Категорії</div>
+        <a href="catalog.html?cat=motor">Моторні оливи</a>
+        <a href="catalog.html?cat=agro">Сільська техніка</a>
+        <a href="catalog.html?cat=truck">Вантажівки</a>
+        <a href="catalog.html?cat=antifreeze">Антифризи</a>
+        <a href="catalog.html?cat=grease">Змазки</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-title">Контакти</div>
+        <a href="tel:+380991234567">📞 +38 (099) 123-45-67</a>
+        <a href="#">Telegram</a>
+        <a href="#">Viber</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 MOTORLUB. Всі права захищені.</span>
+    <span>Розроблено з ❤️ в Україні</span>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-title">ЗАМОВЛЕННЯ</div>
+      <div class="modal-subtitle" id="modalProduct">— товар —</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-info-box">
+        Для замовлення — зателефонуйте нам або напишіть у месенджер. Підтвердимо наявність і оформимо доставку.
+      </div>
+      <div class="modal-phone-wrap">
+        <div class="mph-label">Телефон для замовлення:</div>
+        <a href="tel:+380991234567" class="mph-number">+38 (099) 123-45-67</a>
+      </div>
+      <a href="tel:+380991234567" class="btn-call-modal">📞 ЗАТЕЛЕФОНУВАТИ І ЗАМОВИТИ</a>
+      <div class="modal-messengers">
+        <span>Або пишіть:</span>
+        <a href="#">Telegram</a>
+        <a href="#">Viber</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="main.js"></script>
+<script>
+  // Render featured products
+  document.addEventListener('DOMContentLoaded', () => {
+    const featured = PRODUCTS.filter(p => p.featured).slice(0, 6);
+    const grid = document.getElementById('featuredGrid');
+    grid.innerHTML = featured.map(p => productCard(p)).join('');
+  });
+</script>
+</body>
+</html>

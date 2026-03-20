@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакти — MOTORLUB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .success-msg {
+    display: none;
+    background: rgba(76, 175, 114, 0.1);
+    border: 1px solid var(--green);
+    color: var(--green);
+    padding: 16px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .success-msg.show { display: block; }
+
+  .contact-hero-numbers {
+    display: flex; gap: 3px;
+    margin-top: 48px;
+  }
+  .chn-item {
+    flex: 1; background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 24px; text-align: center;
+    transition: all 0.3s;
+  }
+  .chn-item:hover { border-color: var(--accent2); }
+  .chn-icon { font-size: 32px; margin-bottom: 12px; }
+  .chn-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); font-family: 'Share Tech Mono', monospace; margin-bottom: 6px; }
+  .chn-val { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--accent); }
+  .chn-val a { color: var(--accent); text-decoration: none; }
+
+  .delivery-section { max-width: 1280px; margin: 0 auto; padding: 0 40px 80px; }
+  .delivery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 40px; }
+  .deliv-card { background: var(--surface); border: 1px solid var(--border); padding: 28px; transition: all 0.3s; }
+  .deliv-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
+  .deliv-icon { font-size: 36px; margin-bottom: 16px; }
+  .deliv-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; margin-bottom: 8px; }
+  .deliv-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+  .deliv-time { margin-top: 12px; font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 1px; }
+
+  .faq-section { background: var(--surface); padding: 80px 40px; }
+  .faq-inner { max-width: 1280px; margin: 0 auto; }
+  .faq-list { margin-top: 40px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; font-weight: 600; transition: color 0.2s; }
+  .faq-q:hover { color: var(--accent); }
+  .faq-arrow { font-size: 18px; transition: transform 0.3s; color: var(--text-muted); }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--accent); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+  .faq-item.open .faq-a { max-height: 200px; }
+  .faq-a-inner { padding: 0 0 20px; }
+
+  @media (max-width: 768px) {
+    .contact-hero-numbers { flex-direction: column; }
+    .delivery-grid { grid-template-columns: 1fr; }
+    .delivery-section, .faq-section { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">MOTOR<span>LUB</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="logo">MOTOR<span>LUB</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="catalog.html">Каталог</a></li>
+    <li><a href="about.html">Про нас</a></li>
+    <li><a href="contacts.html" class="active">Контакти</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+380991234567" class="nav-phone">📞 +38 (099) 123-45-67</a>
+    <button class="burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Головна</a>
+  <a href="catalog.html" onclick="toggleMenu()">Каталог</a>
+  <a href="about.html" onclick="toggleMenu()">Про нас</a>
+  <a href="contacts.html" onclick="toggleMenu()">Контакти</a>
+  <a href="tel:+380991234567" class="mm-phone">📞 +38 (099) 123-45-67</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="section-eyebrow">// зв'язок</div>
+    <h1>КОН<span class="gold-text">ТАКТИ</span></h1>
+    <p>Зв'яжіться з нами будь-яким зручним способом — відповімо швидко і підберемо потрібний товар.</p>
+    <div class="contact-hero-numbers">
+      <div class="chn-item fade-up">
+        <div class="chn-icon">📞</div>
+        <div class="chn-label">Телефон</div>
+        <div class="chn-val"><a href="tel:+380991234567">+38 (099) 123-45-67</a></div>
+      </div>
+      <div class="chn-item fade-up">
+        <div class="chn-icon">💬</div>
+        <div class="chn-label">Telegram</div>
+        <div class="chn-val"><a href="#">@motorlub_ua</a></div>
+      </div>
+      <div class="chn-item fade-up">
+        <div class="chn-icon">📱</div>
+        <div class="chn-label">Viber</div>
+        <div class="chn-val"><a href="tel:+380991234567">+38 (099) 123-45-67</a></div>
+      </div>
+      <div class="chn-item fade-up">
+        <div class="chn-icon">📸</div>
+        <div class="chn-label">Instagram</div>
+        <div class="chn-val"><a href="#">@motorlub</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTS MAIN -->
+<section class="contacts-section">
+  <div class="contacts-grid">
+    <!-- LEFT: INFO -->
+    <div class="contacts-info fade-up">
+      <h2>ДЕТАЛЬНА <span class="gold-text">ІНФОРМАЦІЯ</span></h2>
+
+      <div class="ci-item">
+        <div class="ci-icon">📞</div>
+        <div>
+          <div class="ci-label">Телефон для замовлень</div>
+          <div class="ci-value"><a href="tel:+380991234567">+38 (099) 123-45-67</a></div>
+        </div>
+      </div>
+
+      <div class="ci-item">
+        <div class="ci-icon">📱</div>
+        <div>
+          <div class="ci-label">Viber / Telegram / WhatsApp</div>
+          <div class="ci-value"><a href="tel:+380991234567">+38 (099) 123-45-67</a></div>
+        </div>
+      </div>
+
+      <div class="ci-item">
+        <div class="ci-icon">📧</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-value"><a href="mailto:info@motorlub.ua">info@motorlub.ua</a></div>
+        </div>
+      </div>
+
+      <div class="ci-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Адреса</div>
+          <div class="ci-value">Україна, Київська обл. Самовивіз за домовленістю</div>
+        </div>
+      </div>
+
+      <div class="ci-item">
+        <div class="ci-icon">🕐</div>
+        <div>
+          <div class="ci-label">Графік роботи</div>
+          <div class="ci-value">Пн–Пт: 09:00 – 18:00<br>Сб: 10:00 – 15:00</div>
+        </div>
+      </div>
+
+      <div class="ci-item">
+        <div class="ci-icon">⚡</div>
+        <div>
+          <div class="ci-label">Час відповіді</div>
+          <div class="ci-value" style="color:var(--green);">До 15 хвилин у робочий час</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <a href="tel:+380991234567" class="btn-gold">📞 Зателефонувати зараз</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="contacts-form fade-up">
+      <div class="cf-title">ЗАЛИШІТЬ <span class="gold-text">ЗАЯВКУ</span></div>
+      <div class="cf-sub">Заповніть форму — передзвонимо протягом 15 хвилин у робочий час</div>
+
+      <div class="success-msg" id="successMsg">
+        ✓ Дякуємо! Ваша заявка відправлена. Ми зателефонуємо найближчим часом.
+      </div>
+
+      <div class="form-group">
+        <label>Ваше ім'я *</label>
+        <input type="text" class="form-control" id="fName" placeholder="Іван Петренко">
+      </div>
+      <div class="form-group">
+        <label>Номер телефону *</label>
+        <input type="tel" class="form-control" id="fPhone" placeholder="+38 (0__) ___-__-__">
+      </div>
+      <div class="form-group">
+        <label>Що вас цікавить?</label>
+        <input type="text" class="form-control" id="fProduct" placeholder="Наприклад: 5W-40 для Toyota Camry 2015">
+      </div>
+      <div class="form-group">
+        <label>Коментар / Запитання</label>
+        <textarea class="form-control" id="fComment" placeholder="Опишіть вашу техніку, пробіг, умови експлуатації..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">ВІДПРАВИТИ ЗАЯВКУ →</button>
+      <div style="margin-top:16px;font-size:12px;color:var(--text-dim);text-align:center;">
+        Або телефонуйте напряму: <a href="tel:+380991234567" style="color:var(--accent);">+38 (099) 123-45-67</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<div class="delivery-section">
+  <div class="section-eyebrow fade-up">// доставка</div>
+  <h2 class="fade-up" style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;line-height:1;">СПОСОБИ <span class="gold-text">ДОСТАВКИ</span></h2>
+  <div class="delivery-grid">
+    <div class="deliv-card fade-up">
+      <div class="deliv-icon">📦</div>
+      <div class="deliv-name">НОВА ПОШТА</div>
+      <div class="deliv-desc">Доставка у відділення або за адресою по всій Україні. Відправка в день оплати або наступного дня.</div>
+      <div class="deliv-time">⏱ 1-3 дні · Від 50 грн</div>
+    </div>
+    <div class="deliv-card fade-up">
+      <div class="deliv-icon">🏛️</div>
+      <div class="deliv-name">УКРПОШТА</div>
+      <div class="deliv-desc">Доставка у відділення Укрпошти. Підходить для великих і важких замовлень (каністри 20 л).</div>
+      <div class="deliv-time">⏱ 2-5 днів · Від 40 грн</div>
+    </div>
+    <div class="deliv-card fade-up">
+      <div class="deliv-icon">🚗</div>
+      <div class="deliv-name">САМОВИВІЗ</div>
+      <div class="deliv-desc">Самовивіз за домовленістю. Уточніть адресу при замовленні. Безкоштовно.</div>
+      <div class="deliv-time">⏱ В день замовлення · Безкоштовно</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div class="faq-inner">
+    <div class="section-eyebrow fade-up">// питання та відповіді</div>
+    <h2 class="fade-up" style="font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;line-height:1;">ЧАСТІ <span class="gold-text">ЗАПИТАННЯ</span></h2>
+    <div class="faq-list fade-up">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Як я можу замовити товар? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Зателефонуйте нам за номером +38 (099) 123-45-67, напишіть у Telegram або Viber, або заповніть форму на цій сторінці. Ми підтвердимо наявність товару і домовимося про доставку або самовивіз.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Як підібрати мастило для мого авто? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Зателефонуйте нам або напишіть. Повідомте марку і модель авто, рік випуску і тип двигуна (бензин/дизель/газ). Ми підберемо оптимальну оливу з урахуванням пробігу і умов їзди — безкоштовно.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Чи є у вас оливи для тракторів та сільгосптехніки? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Так! Ми маємо широкий асортимент для МТЗ, ЮМЗ, Т-150, John Deere, Case, New Holland та інших. Є моторні оливи, UTTO (трансмісійно-гідравлічні), гідравлічні рідини. Великі каністри 20 л в наявності.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Чи є оливи для вантажних автомобілів і фур? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Так, великий вибір! Scania, Volvo, Mercedes Actros, MAN, DAF, Iveco — є оливи для будь-якого стандарту. ACEA E6/E7/E9, сертифікати Scania LDF, Volvo VDS та інші. Каністри 20 л і бочки за замовленням.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Чи є гарантія на товар? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Так. Всі товари оригінальні, постачаються з сертифікатами. Якщо товар виявився неоригінальним або пошкодженим — повернемо гроші повністю. Гарантія на відповідність допускам виробника.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Чи є оптові ціни для СТО і підприємств? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Так, є оптові умови і знижки для постійних клієнтів — СТО, автопарків, фермерських господарств, транспортних компаній. Телефонуйте або пишіть — обговоримо умови індивідуально.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">MOTOR<span>LUB</span></div>
+      <p>Оригінальні мастила та оливи для авто, сільської техніки та вантажівок.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="fn-col">
+        <div class="fn-title">Навігація</div>
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="about.html">Про нас</a>
+        <a href="contacts.html">Контакти</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-title">Категорії</div>
+        <a href="catalog.html?cat=motor">Моторні оливи</a>
+        <a href="catalog.html?cat=agro">Сільська техніка</a>
+        <a href="catalog.html?cat=truck">Вантажівки</a>
+        <a href="catalog.html?cat=antifreeze">Антифризи</a>
+        <a href="catalog.html?cat=grease">Змазки</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-title">Контакти</div>
+        <a href="tel:+380991234567">📞 +38 (099) 123-45-67</a>
+        <a href="#">Telegram</a>
+        <a href="#">Viber</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 MOTORLUB. Всі права захищені.</span>
+    <span>Розроблено з ❤️ в Україні</span>
+  </div>
+</footer>
+
+<script src="products.js"></script>
+<script src="main.js"></script>
+<script>
+  function submitForm() {
+    const name = document.getElementById('fName').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+
+    if (!name || !phone) {
+      alert('Будь ласка, заповніть ім\'я та номер телефону');
+      return;
+    }
+
+    // Show success
+    document.getElementById('successMsg').classList.add('show');
+
+    // Clear form
+    ['fName','fPhone','fProduct','fComment'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+
+    // Scroll to success
+    document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // Open if was closed
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
