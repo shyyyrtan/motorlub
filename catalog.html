@@ -7,6 +7,154 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+/* ── BRAND PLACEHOLDER ── */
+.brand-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.bp-bg {
+  position: absolute; inset: 0;
+  opacity: 0.08;
+}
+.bp-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 4px;
+  color: #fff; position: relative; z-index: 1;
+  text-align: center; line-height: 1;
+}
+.bp-viscosity {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 22px; color: var(--accent);
+  position: relative; z-index: 1;
+  margin-top: 8px; letter-spacing: 2px;
+}
+.bp-type {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px; letter-spacing: 3px;
+  color: rgba(255,255,255,0.4);
+  position: relative; z-index: 1;
+  margin-top: 6px; text-transform: uppercase;
+}
+.bp-line {
+  width: 40px; height: 2px;
+  background: var(--accent);
+  position: relative; z-index: 1;
+  margin: 10px 0;
+}
+
+/* Brand colors */
+.bp-mobil .bp-bg { background: radial-gradient(circle at 30% 30%, #c41230, transparent); }
+.bp-shell .bp-bg { background: radial-gradient(circle at 30% 30%, #dd1d21, transparent); }
+.bp-castrol .bp-bg { background: radial-gradient(circle at 30% 30%, #007b40, transparent); }
+.bp-liquimoly .bp-bg { background: radial-gradient(circle at 30% 30%, #f7b731, transparent); }
+.bp-total .bp-bg { background: radial-gradient(circle at 30% 30%, #c8102e, transparent); }
+.bp-zf .bp-bg { background: radial-gradient(circle at 30% 30%, #005ca9, transparent); }
+
+/* ── VOLUME SELECTOR ── */
+.volume-selector {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  margin-bottom: 14px;
+}
+.vol-btn {
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text-muted); padding: 5px 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; letter-spacing: 1px;
+  cursor: pointer; border-radius: 4px;
+  transition: all 0.2s;
+}
+.vol-btn:hover { border-color: var(--accent2); color: var(--text); }
+.vol-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(200,168,75,0.08); }
+
+/* ── VEHICLE TYPE TABS ── */
+.vtype-tabs {
+  display: flex; gap: 3px; flex-wrap: wrap;
+  padding: 0 16px; margin-bottom: 8px;
+}
+.vt-btn {
+  background: none; border: 1px solid var(--border);
+  color: var(--text-muted); padding: 7px 12px;
+  font-family: 'Rajdhani', sans-serif; font-weight: 600;
+  font-size: 12px; letter-spacing: 1px;
+  cursor: pointer; border-radius: 5px;
+  transition: all 0.2s; display: flex;
+  align-items: center; gap: 5px;
+}
+.vt-btn:hover { color: var(--text); border-color: var(--border2); }
+.vt-btn.active { color: var(--accent); border-color: var(--accent); background: rgba(200,168,75,0.08); }
+.vt-icon { font-size: 14px; }
+
+/* ── BRAND SEARCH ── */
+.brand-search-wrap {
+  padding: 0 16px; margin-bottom: 8px;
+}
+.brand-search-inp {
+  width: 100%; background: var(--surface2);
+  border: 1px solid var(--border); color: var(--text);
+  padding: 8px 12px; font-size: 13px;
+  font-family: 'Rajdhani', sans-serif;
+  outline: none; border-radius: 5px;
+  transition: border-color .2s;
+}
+.brand-search-inp:focus { border-color: var(--accent2); }
+.brand-search-inp::placeholder { color: var(--dim); }
+
+/* ── ACTIVE FILTERS BAR ── */
+.active-filters {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 16px;
+}
+.af-tag {
+  background: rgba(200,168,75,0.1);
+  border: 1px solid var(--accent2);
+  color: var(--accent); font-size: 11px;
+  padding: 4px 10px; border-radius: 20px;
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 1px;
+}
+.af-remove {
+  cursor: pointer; opacity: 0.7;
+  transition: opacity .2s; font-size: 12px;
+}
+.af-remove:hover { opacity: 1; }
+
+/* ── PRODUCT CARD IMG ── */
+.product-img-wrap {
+  width: 100%; height: 200px;
+  background: var(--surface2);
+  overflow: hidden; position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.product-img-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 12px; background: #fff;
+  transition: transform 0.4s;
+}
+.product-card:hover .product-img-wrap img { transform: scale(1.05); }
+
+/* ── PRICE DISPLAY ── */
+.price-wrap { display: flex; flex-direction: column; }
+.price-per-unit {
+  font-size: 11px; color: var(--text-muted);
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 1px;
+}
+
+/* SB section title with toggle */
+.sb-section-head {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  cursor: pointer; user-select: none;
+}
+.sb-section-head:hover .sb-title { color: var(--accent); }
+.sb-toggle { font-size: 10px; color: var(--text-dim); transition: transform .2s; }
+.sb-section.collapsed .sb-toggle { transform: rotate(-90deg); }
+.sb-section.collapsed .sb-body { display: none; }
+</style>
 </head>
 <body>
 
@@ -41,48 +189,93 @@
   <div class="page-hero-content">
     <div class="section-eyebrow">// асортимент</div>
     <h1>КАТАЛОГ <span class="gold-text">ТОВАРІВ</span></h1>
-    <p>52 позиції — моторні оливи, трансмісійні рідини, мастила для тракторів і вантажівок, антифризи та змазки.</p>
+    <p>52 позиції — моторні оливи для авто, сільської техніки та вантажівок, антифризи та змазки.</p>
   </div>
 </div>
 
 <div class="catalog-layout">
   <aside class="sidebar">
+
+    <!-- SEARCH -->
     <div class="sb-section">
-      <div class="sb-title">Пошук</div>
+      <div class="sb-title">Пошук товару</div>
       <div class="sb-search">
         <input type="text" id="searchInput" placeholder="Назва, бренд, допуск..." oninput="applyFilters()">
         <button onclick="clearSearch()">✕</button>
       </div>
     </div>
+
+    <!-- VEHICLE TYPE -->
     <div class="sb-section">
-      <div class="sb-title">Категорія</div>
-      <div id="catList"></div>
-    </div>
-    <div class="sb-section">
-      <div class="sb-title">Бренд</div>
-      <div id="brandList"></div>
-    </div>
-    <div class="sb-section">
-      <div class="sb-title">Ціна (грн)</div>
-      <div class="price-inputs">
-        <input type="number" class="price-in" id="priceMin" placeholder="Від" oninput="applyFilters()">
-        <span class="price-sep">—</span>
-        <input type="number" class="price-in" id="priceMax" placeholder="До" oninput="applyFilters()">
+      <div class="sb-section-head" onclick="toggleSection(this)">
+        <div class="sb-title">Тип транспорту</div>
+        <span class="sb-toggle">▼</span>
       </div>
-      <button class="apply-filter" onclick="resetFilters()">Скинути фільтри</button>
+      <div class="sb-body">
+        <div class="vtype-tabs" id="vtypeTabs">
+          <button class="vt-btn active" onclick="setVtype('all',this)"><span class="vt-icon">🔍</span>Всі</button>
+          <button class="vt-btn" onclick="setVtype('car',this)"><span class="vt-icon">🚗</span>Легкові</button>
+          <button class="vt-btn" onclick="setVtype('truck',this)"><span class="vt-icon">🚛</span>Вантажівки</button>
+          <button class="vt-btn" onclick="setVtype('agro',this)"><span class="vt-icon">🚜</span>Трактори</button>
+          <button class="vt-btn" onclick="setVtype('special',this)"><span class="vt-icon">⚙️</span>Спецтехніка</button>
+        </div>
+      </div>
     </div>
+
+    <!-- CATEGORY -->
+    <div class="sb-section">
+      <div class="sb-section-head" onclick="toggleSection(this)">
+        <div class="sb-title">Категорія</div>
+        <span class="sb-toggle">▼</span>
+      </div>
+      <div class="sb-body">
+        <div id="catList"></div>
+      </div>
+    </div>
+
+    <!-- BRAND SEARCH + LIST -->
+    <div class="sb-section">
+      <div class="sb-section-head" onclick="toggleSection(this)">
+        <div class="sb-title">Бренд</div>
+        <span class="sb-toggle">▼</span>
+      </div>
+      <div class="sb-body">
+        <div class="brand-search-wrap">
+          <input class="brand-search-inp" id="brandSearch" placeholder="Пошук бренду..." oninput="filterBrandList()">
+        </div>
+        <div id="brandList"></div>
+      </div>
+    </div>
+
+    <!-- PRICE -->
+    <div class="sb-section">
+      <div class="sb-section-head" onclick="toggleSection(this)">
+        <div class="sb-title">Ціна (грн)</div>
+        <span class="sb-toggle">▼</span>
+      </div>
+      <div class="sb-body" style="padding:0 16px 8px">
+        <div class="price-inputs">
+          <input type="number" class="price-in" id="priceMin" placeholder="Від" oninput="applyFilters()">
+          <span class="price-sep">—</span>
+          <input type="number" class="price-in" id="priceMax" placeholder="До" oninput="applyFilters()">
+        </div>
+        <button class="apply-filter" onclick="resetFilters()" style="margin-top:10px">Скинути всі фільтри</button>
+      </div>
+    </div>
+
   </aside>
 
   <div class="catalog-main">
     <div class="catalog-toolbar">
       <div class="ct-left">Знайдено: <strong id="resultCount">0</strong> товарів</div>
       <div class="ct-right">
-        <button class="sort-btn active" onclick="sortBy('default', this)">За замовч.</button>
-        <button class="sort-btn" onclick="sortBy('price-asc', this)">Ціна ↑</button>
-        <button class="sort-btn" onclick="sortBy('price-desc', this)">Ціна ↓</button>
-        <button class="sort-btn" onclick="sortBy('name', this)">A→Я</button>
+        <button class="sort-btn active" onclick="sortBy('default',this)">За замовч.</button>
+        <button class="sort-btn" onclick="sortBy('price-asc',this)">Ціна ↑</button>
+        <button class="sort-btn" onclick="sortBy('price-desc',this)">Ціна ↓</button>
+        <button class="sort-btn" onclick="sortBy('name',this)">А→Я</button>
       </div>
     </div>
+    <div class="active-filters" id="activeFilters"></div>
     <div class="products-grid" id="catalogGrid"></div>
   </div>
 </div>
@@ -147,111 +340,99 @@
 </div>
 
 <script>
+// ══════════════════════════════════════════
+//  BRAND PLACEHOLDER GENERATOR
+// ══════════════════════════════════════════
+const BRAND_COLORS = {
+  'Mobil 1':'bp-mobil','Mobil':'bp-mobil',
+  'Shell':'bp-shell',
+  'Castrol':'bp-castrol',
+  'Liqui Moly':'bp-liquimoly',
+  'Total':'bp-total',
+  'ZF':'bp-zf',
+};
+const BRAND_ABBR = {
+  'Mobil 1':'M1','Mobil':'MOBIL','Shell':'SHELL',
+  'Castrol':'CASTROL','Liqui Moly':'LM','Total':'TOTAL','ZF':'ZF',
+};
+
+function brandPlaceholder(p) {
+  const cls = BRAND_COLORS[p.brand] || 'bp-total';
+  const abbr = BRAND_ABBR[p.brand] || p.brand.toUpperCase();
+  const visc = p.viscosity || '';
+  const typeLabel = {motor:'Моторна олива',agro:'Агро / Трактор',truck:'Вантажівки',trans:'Трансмісійна',antifreeze:'Антифриз',grease:'Змазка'}[p.category] || '';
+  return `<div class="brand-placeholder ${cls}">
+    <div class="bp-bg"></div>
+    <div class="bp-brand">${abbr}</div>
+    <div class="bp-line"></div>
+    <div class="bp-viscosity">${visc}</div>
+    <div class="bp-type">${typeLabel}</div>
+  </div>`;
+}
+
+// ══════════════════════════════════════════
+//  PRODUCTS DATABASE
+// ══════════════════════════════════════════
+// vtypes: car=легкові, truck=вантажівки, agro=трактори, special=спецтехніка
+// volumes: { 'Xл': base_price_multiplier }
 const PRODUCTS = [
-  // 1
-  {id:1,category:'motor',brand:'Mobil 1',name:'Mobil 1 5W-40 / 4л',desc:'Повністю синтетична моторна олива для бензинових і дизельних двигунів. Захист при запуску в мороз до -40°C. Для Audi, BMW, Mercedes, VW.',specs:['VW 502.00/505.00','BMW LL-01','MB 229.3','API SN'],price:890,badge:'badge-hit',badgeText:'Хіт продажів',img:'https://img6.itbox.ua/1600x1600/prod_img/6/U0489906_big.webp',emoji:'🛢️'},
-  // 2
-  {id:2,category:'motor',brand:'Mobil',name:'Mobil Super 3000 5W-40 / 4л',desc:'Синтетика підвищеної якості для турбодизельних двигунів. Відмінний захист у будь-яких умовах.',specs:['ACEA A3/B4','VW 502.00/505.00','MB 229.3','API SL/CF'],price:760,badge:'',badgeText:'',img:'https://images.prom.ua/4545953987_w640_h640_mastilo-mobil-super.jpg',emoji:'🛢️'},
-  // 3
-  {id:3,category:'motor',brand:'Castrol',name:'Castrol EDGE 10W-40 / 4л',desc:'Синтетика для Toyota, Honda, Nissan, Hyundai з пробігом 100 000+ км. Посилена формула від зношування.',specs:['ACEA A3/B4','API SL/CF','VW 501.01'],price:720,badge:'',badgeText:'',img:'https://content2.rozetka.com.ua/goods/images/big/552650684.jpg',emoji:'🛢️'},
-  // 4
-  {id:4,category:'motor',brand:'Castrol',name:'Castrol GTX 15W-40 / 5л',desc:'Напівсинтетика для бюджетного сегменту. Захист від корозії і зношування для старих авто.',specs:['ACEA A3/B3','API SJ/CF','MB 229.1'],price:540,badge:'',badgeText:'',img:'https://content2.rozetka.com.ua/goods/images/big/637998994.jpg',emoji:'🛢️'},
-  // 5
-  {id:5,category:'motor',brand:'Shell',name:'Shell Helix Ultra 5W-30 / 4л',desc:'Повна синтетика GTL для BMW, Ford, Renault з турбодвигунами. Офіційний допуск BMW Longlife-04.',specs:['BMW LL-04','MB 229.51','VW 504.00/507.00','Ford WSS-M2C913'],price:1050,badge:'badge-new',badgeText:'Новинка',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/1/9/1995541_3.webp',emoji:'🛢️'},
-  // 6
-  {id:6,category:'motor',brand:'Shell',name:'Shell Helix HX7 10W-40 / 4л',desc:'Напівсинтетика для Renault, Peugeot, Citroen, Opel. Відмінний захист при міському режимі їзди.',specs:['ACEA A3/B4','Renault RN0700','API SL'],price:540,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/_/-/_-_001541_shell_helix_hx7_10w-40_4l.png',emoji:'🛢️'},
-  // 7
-  {id:7,category:'motor',brand:'Liqui Moly',name:'Liqui Moly 0W-30 Longlife / 5л',desc:'Лонгліф синтетика для BMW, Mercedes, VW Group. Інтервал заміни до 30 000 км. Porsche, Audi.',specs:['BMW LL-04','MB 229.51','VW 504.00/507.00','Porsche C30'],price:1240,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/l/i/liqui_moly_synthoil_longtime_0w30_5l_1.webp',emoji:'🛢️'},
-  // 8
-  {id:8,category:'motor',brand:'Liqui Moly',name:'Liqui Moly MoS2 10W-40 / 4л',desc:'Напівсинтетика з дисульфідом молібдену. Знижує тертя і знос. Opel, Skoda, VW з великим пробігом.',specs:['ACEA A3/B4','API SL/CF','VW 501.01/505.00'],price:680,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/5/1536_3.webp',emoji:'🛢️'},
-  // 9
-  {id:9,category:'motor',brand:'Total',name:'Total Quartz 9000 5W-40 / 5л',desc:'Французька синтетика для Peugeot, Citroen, Renault. Відповідає стандартам Euro V/VI.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2296'],price:810,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/1/1162_3.webp',emoji:'🛢️'},
-  // 10
-  {id:10,category:'motor',brand:'Total',name:'Total Quartz 7000 10W-40 / 5л',desc:'Якісна напівсинтетика для французьких і азійських автомобілів. Renault, Peugeot, Citroen, Toyota.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2295'],price:590,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/3/134_3.webp',emoji:'🛢️'},
-  // 11
-  {id:11,category:'agro',brand:'Shell',name:'Shell Rimula R4 15W-40 / 20л',desc:'Для тракторів John Deere, Fendt, Claas. Захист при важких навантаженнях — польові роботи, орання, жнива.',specs:['API CF-4/SG','CAT TO-2','Komatsu','John Deere'],price:3200,badge:'badge-hit',badgeText:'Хіт',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/r/i/rimula-r4-multi-10w-30_1_3.webp',emoji:'🚜'},
-  // 12
-  {id:12,category:'agro',brand:'Total',name:'Total Multagri Pro 10W-40 / 20л',desc:'Універсальна олива UTTO для тракторів із мокрими гальмами та гідравлікою. МТЗ, ЮМЗ, Т-150, Case, New Holland.',specs:['UTTO','John Deere J20C','Case MS-1210','Allison C4'],price:4100,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/576_0.jpg',emoji:'🚜'},
-  // 13
-  {id:13,category:'agro',brand:'Mobil',name:'Mobil Delvac MX 15W-40 / 20л',desc:'Преміум мінеральна олива для комбайнів, тракторів і сільгосптехніки.',specs:['API CJ-4','ACEA E9','Cummins CES 20081','Volvo VDS-4'],price:3800,badge:'',badgeText:'',img:'https://s.ek.ua/jpg_zoom1/1587542.jpg',emoji:'🚜'},
-  // 14
-  {id:14,category:'agro',brand:'Liqui Moly',name:'Liqui Moly Тракторна 15W-40 / 10л',desc:'Для двигунів МТЗ-80/82, МТЗ-1025, ЮМЗ-6. Захист поршнів та гільз циліндрів.',specs:['API CF','CCMC D4','MIL-L-2104E'],price:1950,badge:'',badgeText:'',img:'https://images.prom.ua/2786952584_w640_h640_2786952584.jpg',emoji:'🚜'},
-  // 15
-  {id:15,category:'agro',brand:'Shell',name:'Shell Spirax S4 TXM 10W-30 / 20л',desc:'UTTO для тракторів зі спільною гідравлічно-трансмісійною системою.',specs:['UTTO','John Deere J20C/D','Ford M2C 134-D','ZF TE-ML 06B'],price:4600,badge:'',badgeText:'',img:'https://www.ua.shell/business-customers/lubricants-for-business/lubricants-product-range/rimula-truck-heavy-duty-engine-oil/synthetic-technology-oils/shell-rimula-r6-lm-10w-40/_jcr_content/root/main/section_copy/standalone_asset.shellimg.jpeg/1722869456039/rimula-r6-lm.jpeg?imdensity=1&imwidth=509&impolicy=amidala-image',emoji:'🚜'},
-  // 16
-  {id:16,category:'agro',brand:'Castrol',name:'Castrol Agri MP 15W-40 / 10л',desc:'Для навантажувачів, культиваторів, міні-тракторів. Захист від зносу.',specs:['API CF','UTTO','John Deere J27'],price:2100,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/345764.jpg',emoji:'🚜'},
-  // 17
-  {id:17,category:'agro',brand:'Total',name:'Total Dynatrans MPV 10W-40 / 20л',desc:'Для трансмісій і мостів сільгосптехніки. Рівний хід при навантаженнях.',specs:['ZF TE-ML 05C/06B','John Deere J20C','Case MS-1207'],price:4300,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/573_0.jpg',emoji:'🚜'},
-  // 18
-  {id:18,category:'agro',brand:'Mobil',name:'Mobil Agri Extra 10W-40 / 20л',desc:'Всесезонна олива для двигунів, трансмісій і гідравліки. Один продукт замість трьох.',specs:['API CJ-4','UTTO','Allison C4','Cat TO-4'],price:3950,badge:'badge-new',badgeText:'Новинка',img:'https://s.ek.ua/jpg/350933.jpg',emoji:'🚜'},
-  // 19
-  {id:19,category:'truck',brand:'Shell',name:'Shell Rimula R6 LM 10W-40 / 20л',desc:'Для вантажівок Euro VI — Scania, Volvo, Mercedes Actros, MAN, DAF. Підтримує DPF.',specs:['ACEA E6/E9','Scania LDF-3','Volvo VDS-4','MB 228.51'],price:6800,badge:'badge-hit',badgeText:'Хіт',img:'https://liquimoly-shop.com.ua/upload/iblock/31b/wz81h10ww5z4n0yarouj14fnfo0yu4yq/liqui_moly_lkw_leichtlauf_motoroil_10w_40_20l.jpg',emoji:'🚛'},
-  // 20
-  {id:20,category:'truck',brand:'Mobil',name:'Mobil Delvac 1 5W-40 / 20л',desc:'Синтетика для важких умов. Scania, Volvo, MAN Euro V/VI. Інтервал до 100 000 км.',specs:['ACEA E4/E7','Scania LDF-2','Volvo VDS-3','MB 228.5'],price:8200,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/350254.jpg',emoji:'🚛'},
-  // 21
-  {id:21,category:'truck',brand:'Castrol',name:'Castrol Vecton 10W-40 / 20л',desc:'Для вантажівок з тривалими пробігами. Стабільність оливи весь інтервал.',specs:['ACEA E7','Volvo VDS-3','MB 228.3','MAN M3275-1'],price:5900,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/344919.jpg',emoji:'🚛'},
-  // 22
-  {id:22,category:'truck',brand:'Total',name:'Total Rubia TIR 8600 10W-40 / 20л',desc:'Напівсинтетика для вантажних авто. Гірські дороги, перевантаження. Renault, Iveco.',specs:['ACEA E7/E9','Renault VI RLD-3','MB 228.3','MAN M 3275'],price:5400,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/571_0.png',emoji:'🚛'},
-  // 23
-  {id:23,category:'truck',brand:'Liqui Moly',name:'Liqui Moly Truck 10W-40 / 20л',desc:'Синтетика для вантажівок і автобусів Euro IV/V. DAF, Iveco, Scania, Volvo.',specs:['ACEA E4/E7','Volvo VDS-3','MB 228.5','MAN M3277'],price:7100,badge:'',badgeText:'',img:'https://infoshina.com.ua/media/images/thumbs/Total-Quartz-7000-Energy-10W-40-20_MyRNQMX.600x600.webp?v=187647153',emoji:'🚛'},
-  // 24
-  {id:24,category:'truck',brand:'Shell',name:'Shell Rimula R3 X 15W-40 / 20л',desc:'Для вантажівок старшого покоління — КАМАЗ, МАЗ, ЗіЛ, ГАЗ.',specs:['API CF-4/SG','ACEA E3/B3','Cummins 20077','Volvo VDS-2'],price:3700,badge:'',badgeText:'',img:'https://s.ek.ua/jpg_zoom1/949210.jpg',emoji:'🚛'},
-  // 25
-  {id:25,category:'truck',brand:'Mobil',name:'Mobil Delvac MX Extra 10W-40 / 20л',desc:'Для вантажних авто з великим пробігом. Стабільна в\'язкість при тривалій роботі.',specs:['ACEA E7','MB 228.3','Volvo VDS-3','Cummins CES 20076'],price:5100,badge:'',badgeText:'',img:'https://content2.rozetka.com.ua/goods/images/big/540851828.jpg',emoji:'🚛'},
-  // 26
-  {id:26,category:'truck',brand:'Castrol',name:'Castrol Vecton Long Drain 10W-40 / 20л',desc:'Для фур — інтервал 100 000+ км. Чистота двигуна весь час.',specs:['ACEA E6/E9','Volvo VDS-4.5','Renault VI RLD-4','MB 228.51'],price:7600,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/s/h/shell_spirax_s4_g_75w-90_1_3.webp',emoji:'🚛'},
-  // 27
-  {id:27,category:'truck',brand:'Total',name:'Total Rubia TIR 9200 FE 10W-30 / 20л',desc:'Паливоекономічна для нових Euro VI. Scania, Volvo, Renault Trucks.',specs:['ACEA E6','Scania LDF-4','Volvo VDS-4.5','Renault VI RLD-4'],price:8900,badge:'badge-new',badgeText:'Новинка',img:'https://www.castrol.com/content/dam/castrol/country-sites-new/ru_kz/central-asia/home/oil-finder-images/caspain/VECTONLONGDrain10W-40E6E9-UKR.jpg',emoji:'🚛'},
-  // 28
-  {id:28,category:'truck',brand:'Shell',name:'Shell Spirax S5 ATEFL 75W / 20л',desc:'Трансмісійна олива для АКПП вантажівок. ZF Astronic, Eaton Fuller.',specs:['ZF TE-ML 02C','MB 236.14','API GL-4'],price:9200,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/5/153519_mobil_atf_3309_1l.webp',emoji:'🚛'},
-  // 29
-  {id:29,category:'trans',brand:'ZF',name:'ZF LifeguardFluid 8 / 1л',desc:'Оригінальна рідина для АКПП ZF 8HP. BMW, Audi, Porsche, Land Rover, Jaguar, Maserati.',specs:['ZF TE-ML 14B','BMW 83220440214','Audi G 052 529'],price:680,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/782822.jpg',emoji:'⚙️'},
-  // 30
-  {id:30,category:'trans',brand:'Shell',name:'Shell Spirax S4 G 75W-90 / 4л',desc:'Синтетична олива для механічних КПП та мостів. Subaru, Mitsubishi, Toyota.',specs:['API GL-4/GL-5','MT-1','ZF TE-ML 16C'],price:890,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/9/1995590_3.webp',emoji:'⚙️'},
-  // 31
-  {id:31,category:'trans',brand:'Castrol',name:'Castrol BOT 530 / 4л',desc:'Рідина для АКПП Honda, Acura. Оригінальний аналог Honda ATF Z1.',specs:['Honda ATF Z1','Honda ATF DW-1'],price:720,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/9/1995593_3.webp',emoji:'⚙️'},
-  // 32
-  {id:32,category:'trans',brand:'Mobil',name:'Mobil ATF 3309 / 4л',desc:'Для АКПП Toyota, Lexus, Hyundai, Kia. Замінник Toyota ATF WS, Hyundai SP-IV.',specs:['Toyota ATF WS','Hyundai SP-IV','Aisin ATF 6+'],price:760,badge:'',badgeText:'',img:'https://shellig.nyc3.cdn.digitaloceanspaces.com/img/product/antyfryz-shell-premium-antifreeze-774-c-p-ready-to-use_1_1741705114532',emoji:'⚙️'},
-  // 33
-  {id:33,category:'trans',brand:'Total',name:'Total Transmission DUAL 9 FE / 4л',desc:'Рідина для подвійних зчеплень DSG/DCT. VW, Audi, BMW, Ford PowerShift.',specs:['VW TL 521 82','BMW 83 22 2147 477','Ford M2C936-A'],price:1100,badge:'badge-new',badgeText:'Новинка',img:'https://cdn.27.ua/799/49/48/1132872_2.jpeg',emoji:'⚙️'},
-  // 34
-  {id:34,category:'trans',brand:'Liqui Moly',name:'Liqui Moly Top Tec ATF 1800 / 4л',desc:'Для сучасних АКПП. Замінює Dexron VI, Mercon V, ATF+4.',specs:['Dexron VI','Mercon V','ATF+4','Allison C4'],price:820,badge:'',badgeText:'',img:'https://images.prom.ua/3552883576_antifriz-sfi-g12.jpg',emoji:'⚙️'},
-  // 35
-  {id:35,category:'trans',brand:'Shell',name:'Shell Spirax S6 GXME 75W-80 / 4л',desc:'Синтетична олива для МКПП Mercedes, MAN, Volvo, Scania. Знижує витрату палива.',specs:['MB 235.8','MAN 341 E4','Volvo 97307','ZF TE-ML 02E'],price:1240,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/603_0.jpg',emoji:'⚙️'},
-  // 36
-  {id:36,category:'antifreeze',brand:'Shell',name:'Shell Premium Antifreeze G11 / 5л',desc:'Охолоджувальна рідина G11 (зелена). Авто до 2000 р.в. Захист від -37°C до +135°C.',specs:['ASTM D3306','BS 6580','G11'],price:340,badge:'',badgeText:'',img:'https://s.ek.ua/jpg_zoom1/1242123.jpg',emoji:'🧊'},
-  // 37
-  {id:37,category:'antifreeze',brand:'Shell',name:'Shell Antifreeze G13 / 5л',desc:'Найновіший G13 на основі гліцерину. VW, Audi, Škoda, SEAT з 2013 р.',specs:['G13','VW TL 774-J'],price:550,badge:'badge-new',badgeText:'Новинка',img:'https://img.autoklad.ua/imgbank/Image/pic/liqui-moly/8841.JPG',emoji:'🧊'},
-  // 38
-  {id:38,category:'antifreeze',brand:'Total',name:'Total Coolelf Auto Supra G12+ / 5л',desc:'Антифриз G12+ (рожевий) для сучасних двигунів. Renault, Peugeot, VW, BMW. До -40°C.',specs:['G12+','VW TL 774-F','MB 325.6','ASTM D3306'],price:420,badge:'',badgeText:'',img:'https://content1.rozetka.com.ua/goods/images/big/474529529.jpg',emoji:'🧊'},
-  // 39
-  {id:39,category:'antifreeze',brand:'Castrol',name:'Castrol Radicool NF / 5л',desc:'OAT антифриз G12++ без нітритів і амінів. Алюмінієві блоки. Toyota, Honda, Ford.',specs:['G12++','ASTM D3306','BS 6580','OAT'],price:460,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/605_0.jpg',emoji:'🧊'},
-  // 40
-  {id:40,category:'antifreeze',brand:'Mobil',name:'Mobil Antifreeze для вантажівок / 20л',desc:'Для важких дизельних двигунів вантажівок і тракторів. Захист від кавітації гільз.',specs:['ASTM D6210','Cummins ES-1','John Deere HJ-200D','Volvo VCS'],price:1800,badge:'',badgeText:'',img:'https://media.avtozvuk.ua/media/cache/medium/uploads/76/1259473/c6c3cd094a1069526294096e60e5a466.jpg',emoji:'🧊'},
-  // 41
-  {id:41,category:'antifreeze',brand:'Liqui Moly',name:'Liqui Moly KFS 2000 SF / 1.5л',desc:'Готовий антифриз G12. Розведений до -30°C. Зручний для доливання.',specs:['G12','VW TL 774-D','Готовий до застосування'],price:180,badge:'',badgeText:'',img:'https://dynamica.ua/wp-content/uploads/2019/07/600-front-57.jpg',emoji:'🧊'},
-  // 42
-  {id:42,category:'grease',brand:'Shell',name:'Shell Alvania RL 3 / 4кг',desc:'Літієва змазка для підшипників коліс, шарнірів підвіски, рульових тяг.',specs:['NLGI 3','DIN 51825','ISO L-XBCEB3'],price:520,badge:'',badgeText:'',img:'https://images.prom.ua/5318769937_w640_h640_5318769937.jpg',emoji:'🛢️'},
-  // 43
-  {id:43,category:'grease',brand:'Castrol',name:'Castrol LMX Li-Complexe / 0.5кг',desc:'Змазка на основі комплексного літію. ШРУС, шарніри і підшипники. До +220°C.',specs:['NLGI 2','DIN 51825 KP2K','ISO L-XBCEB2'],price:160,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/l/i/liqui_moly_lm50_3407_s-500x500_1.webp',emoji:'🛢️'},
-  // 44
-  {id:44,category:'grease',brand:'Liqui Moly',name:'Liqui Moly Langzeit-Fett 0 / 1кг',desc:'Довгострокова змазка для рульових рейок, напрямних супорта, роз\'ємів.',specs:['NLGI 0','VKIS 5250'],price:380,badge:'',badgeText:'',img:'https://images.prom.ua/2121635800_w640_h640_2121635800.jpg',emoji:'🛢️'},
-  // 45
-  {id:45,category:'grease',brand:'Total',name:'Total Multis EP 2 / 4кг',desc:'Змазка EP для підшипників, хрестовин карданного вала. Трактори, вантажівки.',specs:['NLGI 2','DIN 51825 KP2K-30','ASTM D-4950 LB'],price:480,badge:'',badgeText:'',img:'https://lm-shop.com.ua/wp-content/uploads/2019/10/Sprej-ohladitel_Dlya_Remontnyh_Rabot_-_Kalte-Spray_0.4_L.jpg',emoji:'🛢️'},
-  // 46
-  {id:46,category:'grease',brand:'Mobil',name:'Mobilgrease XHP 222 / 4кг',desc:'Преміум змазка для важких умов. Підшипники коліс вантажівок і будтехніки.',specs:['NLGI 2','ISO VG 220','SKF LGEP 2'],price:680,badge:'',badgeText:'',img:'https://liquimoly.ua/shop/image/cache/catalog/image/cache/data/bosslabel/1520n-500x500.webp',emoji:'🛢️'},
-  // 47
-  {id:47,category:'grease',brand:'Liqui Moly',name:'Liqui Moly LM 47 Molykote / 0.5кг',desc:'Змазка з молібденом для зубчастих передач і різьбових з\'єднань.',specs:['MoS2','DIN 51826 GPM1K-30'],price:210,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/606_0.jpg',emoji:'🛢️'},
-  // 48 - без фото
-  {id:48,category:'grease',brand:'Shell',name:'Shell Gadus S3 V220C 2 / 18кг',desc:'Промислова змазка для екскаваторів, кранів, будтехніки та аграрних машин.',specs:['NLGI 2','ISO VG 220','DIN 51825','ASTM D-4950'],price:2800,badge:'',badgeText:'',img:'',emoji:'🛢️'},
-  // 49 - без фото
-  {id:49,category:'grease',brand:'Total',name:'Total Aerosol TS Spray / 0.4л',desc:'Аерозольна змазка для замків, петель, ланцюгів. Витісняє вологу. Ефект 6 місяців.',specs:['Антикорозійний','Витискувач вологи'],price:95,badge:'',badgeText:'',img:'',emoji:'🛢️'},
-  // 50 - без фото
-  {id:50,category:'grease',brand:'Liqui Moly',name:'Liqui Moly Copper Spray / 0.25л',desc:'Мідний спрей для гальмівних колодок, різьбових з\'єднань. До +1100°C.',specs:['Мідна основа','До +1100°C'],price:145,badge:'',badgeText:'',img:'',emoji:'🛢️'},
-  // 51 - без фото
-  {id:51,category:'grease',brand:'Castrol',name:'Castrol Moly Grease / 0.5кг',desc:'Молібденова змазка для ШРУСів і карданних шарнірів. Захист від задирів.',specs:['MoS2','NLGI 2','DIN 51825'],price:190,badge:'',badgeText:'',img:'',emoji:'🛢️'},
-  // 52 - без фото
-  {id:52,category:'grease',brand:'Total',name:'Total Dynatrans EP / 20л',desc:'Трансмісійна олива для мостів і редукторів сільгосптехніки та вантажівок.',specs:['API GL-5','ZF TE-ML 05A','MAN 342 type M'],price:3200,badge:'',badgeText:'',img:'',emoji:'🛢️'},
+  {id:1,category:'motor',vtypes:['car'],brand:'Mobil 1',name:'Mobil 1 5W-40',viscosity:'5W-40',desc:'Повністю синтетична моторна олива для бензинових і дизельних двигунів. Захист при -40°C. Для Audi, BMW, Mercedes, VW.',specs:['VW 502/505','BMW LL-01','MB 229.3','API SN'],basePrice:890,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'badge-hit',badgeText:'Хіт'},
+  {id:2,category:'motor',vtypes:['car','truck'],brand:'Mobil',name:'Mobil Super 3000 5W-40',viscosity:'5W-40',desc:'Синтетика підвищеної якості для турбодизельних двигунів. Відмінний захист у будь-яких умовах.',specs:['ACEA A3/B4','VW 502/505','MB 229.3','API SL/CF'],basePrice:760,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'',badgeText:''},
+  {id:3,category:'motor',vtypes:['car'],brand:'Castrol',name:'Castrol EDGE 10W-40',viscosity:'10W-40',desc:'Синтетика для Toyota, Honda, Nissan, Hyundai з пробігом 100 000+ км.',specs:['ACEA A3/B4','API SL/CF','VW 501.01'],basePrice:720,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'',badgeText:''},
+  {id:4,category:'motor',vtypes:['car'],brand:'Castrol',name:'Castrol GTX 15W-40',viscosity:'15W-40',desc:'Напівсинтетика для старих бензинових та дизельних авто. Захист від корозії і зношування.',specs:['ACEA A3/B3','API SJ/CF','MB 229.1'],basePrice:540,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'',badgeText:''},
+  {id:5,category:'motor',vtypes:['car'],brand:'Shell',name:'Shell Helix Ultra 5W-30',viscosity:'5W-30',desc:'Повна синтетика GTL для BMW, Ford, Renault з турбодвигунами. Офіційний допуск BMW Longlife-04.',specs:['BMW LL-04','MB 229.51','VW 504/507','Ford WSS'],basePrice:1050,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'badge-new',badgeText:'Новинка'},
+  {id:6,category:'motor',vtypes:['car'],brand:'Shell',name:'Shell Helix HX7 10W-40',viscosity:'10W-40',desc:'Напівсинтетика для Renault, Peugeot, Citroen, Opel. Відмінний захист при міському режимі їзди.',specs:['ACEA A3/B4','Renault RN0700','API SL'],basePrice:540,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'',badgeText:''},
+  {id:7,category:'motor',vtypes:['car'],brand:'Liqui Moly',name:'Liqui Moly 0W-30 Longlife',viscosity:'0W-30',desc:'Лонгліф синтетика для BMW, Mercedes, VW Group. Інтервал заміни до 30 000 км. Porsche, Audi.',specs:['BMW LL-04','MB 229.51','VW 504/507','Porsche C30'],basePrice:1240,volumes:{'1л':0.28,'4л':1,'5л':1},badge:'',badgeText:''},
+  {id:8,category:'motor',vtypes:['car'],brand:'Liqui Moly',name:'Liqui Moly MoS2 10W-40',viscosity:'10W-40',desc:'Напівсинтетика з дисульфідом молібдену. Знижує тертя і знос. Opel, Skoda, VW з великим пробігом.',specs:['ACEA A3/B4','API SL/CF','VW 501/505'],basePrice:680,volumes:{'1л':0.28,'4л':1,'5л':1.2},badge:'',badgeText:''},
+  {id:9,category:'motor',vtypes:['car'],brand:'Total',name:'Total Quartz 9000 5W-40',viscosity:'5W-40',desc:'Французька синтетика для Peugeot, Citroen, Renault. Відповідає стандартам Euro V/VI.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2296'],basePrice:810,volumes:{'1л':0.28,'4л':1,'5л':1},badge:'',badgeText:''},
+  {id:10,category:'motor',vtypes:['car'],brand:'Total',name:'Total Quartz 7000 10W-40',viscosity:'10W-40',desc:'Якісна напівсинтетика для французьких і азійських автомобілів. Renault, Peugeot, Toyota.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2295'],basePrice:590,volumes:{'1л':0.28,'4л':1,'5л':1},badge:'',badgeText:''},
+
+  {id:11,category:'agro',vtypes:['agro','special'],brand:'Shell',name:'Shell Rimula R4 15W-40',viscosity:'15W-40',desc:'Для тракторів John Deere, Fendt, Claas. Захист при важких навантаженнях — польові роботи, орання, жнива.',specs:['API CF-4/SG','CAT TO-2','Komatsu','John Deere'],basePrice:3200,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'badge-hit',badgeText:'Хіт'},
+  {id:12,category:'agro',vtypes:['agro','special'],brand:'Total',name:'Total Multagri Pro 10W-40',viscosity:'10W-40',desc:'Універсальна UTTO для тракторів із мокрими гальмами та гідравлікою. МТЗ, ЮМЗ, Т-150, Case, New Holland.',specs:['UTTO','John Deere J20C','Case MS-1210','Allison C4'],basePrice:4100,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:13,category:'agro',vtypes:['agro','special'],brand:'Mobil',name:'Mobil Delvac MX 15W-40',viscosity:'15W-40',desc:'Преміум мінеральна олива для комбайнів, тракторів і сільгосптехніки. Стабільна при тривалих циклах.',specs:['API CJ-4','ACEA E9','Cummins CES 20081','Volvo VDS-4'],basePrice:3800,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:14,category:'agro',vtypes:['agro'],brand:'Liqui Moly',name:'Liqui Moly Тракторна 15W-40',viscosity:'15W-40',desc:'Для двигунів МТЗ-80/82, МТЗ-1025, ЮМЗ-6. Захист поршнів та гільз циліндрів.',specs:['API CF','CCMC D4','MIL-L-2104E'],basePrice:1950,volumes:{'10л':1,'20л':1.8},badge:'',badgeText:''},
+  {id:15,category:'agro',vtypes:['agro','special'],brand:'Shell',name:'Shell Spirax S4 TXM 10W-30',viscosity:'10W-30',desc:'UTTO для тракторів зі спільною гідравлічно-трансмісійною системою. Подовжений термін служби.',specs:['UTTO','John Deere J20C/D','Ford M2C 134-D','ZF TE-ML 06B'],basePrice:4600,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:16,category:'agro',vtypes:['agro'],brand:'Castrol',name:'Castrol Agri MP 15W-40',viscosity:'15W-40',desc:'Для навантажувачів, культиваторів, міні-тракторів. Захищає від надмірного зносу.',specs:['API CF','UTTO','John Deere J27'],basePrice:2100,volumes:{'10л':1,'20л':1.8},badge:'',badgeText:''},
+  {id:17,category:'agro',vtypes:['agro','special'],brand:'Total',name:'Total Dynatrans MPV 10W-40',viscosity:'10W-40',desc:'Для трансмісій і мостів сільгосптехніки. Підтримує рівний хід навіть при екстремальних навантаженнях.',specs:['ZF TE-ML 05C','John Deere J20C','Case MS-1207'],basePrice:4300,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:18,category:'agro',vtypes:['agro','special'],brand:'Mobil',name:'Mobil Agri Extra 10W-40',viscosity:'10W-40',desc:'Всесезонна олива для двигунів, трансмісій і гідравліки. Один продукт замість трьох.',specs:['API CJ-4','UTTO','Allison C4','Cat TO-4'],basePrice:3950,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'badge-new',badgeText:'Новинка'},
+
+  {id:19,category:'truck',vtypes:['truck'],brand:'Shell',name:'Shell Rimula R6 LM 10W-40',viscosity:'10W-40',desc:'Для вантажівок Euro VI — Scania, Volvo, Mercedes Actros, MAN, DAF. Підтримує DPF.',specs:['ACEA E6/E9','Scania LDF-3','Volvo VDS-4','MB 228.51'],basePrice:6800,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'badge-hit',badgeText:'Хіт'},
+  {id:20,category:'truck',vtypes:['truck'],brand:'Mobil',name:'Mobil Delvac 1 5W-40',viscosity:'5W-40',desc:'Синтетика для важких умов. Scania, Volvo, MAN Euro V/VI. Інтервал до 100 000 км.',specs:['ACEA E4/E7','Scania LDF-2','Volvo VDS-3','MB 228.5'],basePrice:8200,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:21,category:'truck',vtypes:['truck'],brand:'Castrol',name:'Castrol Vecton 10W-40',viscosity:'10W-40',desc:'Для вантажівок з тривалими пробігами. Технологія System Pro-Tech для стабільності оливи.',specs:['ACEA E7','Volvo VDS-3','MB 228.3','MAN M3275-1'],basePrice:5900,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:22,category:'truck',vtypes:['truck'],brand:'Total',name:'Total Rubia TIR 8600 10W-40',viscosity:'10W-40',desc:'Напівсинтетика для вантажних авто. Гірські дороги, перевантаження. Renault, Iveco.',specs:['ACEA E7/E9','Renault VI RLD-3','MB 228.3','MAN M 3275'],basePrice:5400,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:23,category:'truck',vtypes:['truck'],brand:'Liqui Moly',name:'Liqui Moly Truck 10W-40',viscosity:'10W-40',desc:'Синтетика для вантажівок і автобусів Euro IV/V. DAF, Iveco, Scania, Volvo.',specs:['ACEA E4/E7','Volvo VDS-3','MB 228.5','MAN M3277'],basePrice:7100,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:24,category:'truck',vtypes:['truck'],brand:'Shell',name:'Shell Rimula R3 X 15W-40',viscosity:'15W-40',desc:'Для вантажівок старшого покоління — КАМАЗ, МАЗ, ЗіЛ, ГАЗ.',specs:['API CF-4/SG','ACEA E3/B3','Cummins 20077','Volvo VDS-2'],basePrice:3700,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:25,category:'truck',vtypes:['truck'],brand:'Mobil',name:'Mobil Delvac MX Extra 10W-40',viscosity:'10W-40',desc:'Для вантажних авто з великим пробігом. Стабільна в\'язкість при тривалій роботі.',specs:['ACEA E7','MB 228.3','Volvo VDS-3'],basePrice:5100,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:26,category:'truck',vtypes:['truck'],brand:'Castrol',name:'Castrol Vecton Long Drain 10W-40',viscosity:'10W-40',desc:'Для фур — інтервал 100 000+ км. Чистота двигуна весь час.',specs:['ACEA E6/E9','Volvo VDS-4.5','Renault VI RLD-4','MB 228.51'],basePrice:7600,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+  {id:27,category:'truck',vtypes:['truck'],brand:'Total',name:'Total Rubia TIR 9200 FE 10W-30',viscosity:'10W-30',desc:'Паливоекономічна для нових Euro VI. Scania, Volvo, Renault Trucks.',specs:['ACEA E6','Scania LDF-4','Volvo VDS-4.5'],basePrice:8900,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'badge-new',badgeText:'Новинка'},
+  {id:28,category:'truck',vtypes:['truck','special'],brand:'Shell',name:'Shell Spirax S5 ATEFL 75W',viscosity:'75W',desc:'Трансмісійна олива для АКПП вантажівок. ZF Astronic, Eaton Fuller.',specs:['ZF TE-ML 02C','MB 236.14','API GL-4'],basePrice:9200,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
+
+  {id:29,category:'trans',vtypes:['car'],brand:'ZF',name:'ZF LifeguardFluid 8',viscosity:'ATF',desc:'Оригінальна рідина для АКПП ZF 8HP. BMW, Audi, Porsche, Land Rover, Jaguar, Maserati.',specs:['ZF TE-ML 14B','BMW 83220440214','Audi G 052 529'],basePrice:680,volumes:{'1л':1,'4л':3.6},badge:'',badgeText:''},
+  {id:30,category:'trans',vtypes:['car'],brand:'Shell',name:'Shell Spirax S4 G 75W-90',viscosity:'75W-90',desc:'Синтетична олива для механічних КПП та мостів. Subaru, Mitsubishi, Toyota.',specs:['API GL-4/GL-5','MT-1','ZF TE-ML 16C'],basePrice:890,volumes:{'1л':0.3,'4л':1},badge:'',badgeText:''},
+  {id:31,category:'trans',vtypes:['car'],brand:'Castrol',name:'Castrol BOT 530',viscosity:'ATF',desc:'Рідина для АКПП Honda, Acura. Оригінальний аналог Honda ATF Z1.',specs:['Honda ATF Z1','Honda ATF DW-1'],basePrice:720,volumes:{'1л':0.3,'4л':1},badge:'',badgeText:''},
+  {id:32,category:'trans',vtypes:['car'],brand:'Mobil',name:'Mobil ATF 3309',viscosity:'ATF',desc:'Для АКПП Toyota, Lexus, Hyundai, Kia. Замінник Toyota ATF WS, Hyundai SP-IV.',specs:['Toyota ATF WS','Hyundai SP-IV','Aisin ATF 6+'],basePrice:760,volumes:{'1л':0.3,'4л':1},badge:'',badgeText:''},
+  {id:33,category:'trans',vtypes:['car'],brand:'Total',name:'Total Transmission DUAL 9 FE',viscosity:'DCT',desc:'Рідина для подвійних зчеплень DSG/DCT. VW, Audi, BMW, Ford PowerShift.',specs:['VW TL 521 82','BMW 83 22 2147 477','Ford M2C936-A'],basePrice:1100,volumes:{'1л':0.3,'4л':1},badge:'badge-new',badgeText:'Новинка'},
+  {id:34,category:'trans',vtypes:['car'],brand:'Liqui Moly',name:'Liqui Moly Top Tec ATF 1800',viscosity:'ATF',desc:'Для сучасних АКПП. Замінює Dexron VI, Mercon V, ATF+4.',specs:['Dexron VI','Mercon V','ATF+4','Allison C4'],basePrice:820,volumes:{'1л':0.3,'4л':1},badge:'',badgeText:''},
+  {id:35,category:'trans',vtypes:['truck','special'],brand:'Shell',name:'Shell Spirax S6 GXME 75W-80',viscosity:'75W-80',desc:'Синтетична олива для МКПП Mercedes, MAN, Volvo, Scania. Знижує витрату палива.',specs:['MB 235.8','MAN 341 E4','Volvo 97307','ZF TE-ML 02E'],basePrice:1240,volumes:{'4л':1,'20л':4.5,'200л':42},badge:'',badgeText:''},
+
+  {id:36,category:'antifreeze',vtypes:['car','truck','agro'],brand:'Shell',name:'Shell Premium Antifreeze G11',viscosity:'G11',desc:'Охолоджувальна рідина G11 (зелена). Авто до 2000 р.в. Захист від -37°C до +135°C.',specs:['ASTM D3306','BS 6580','G11'],basePrice:340,volumes:{'1л':0.22,'5л':1,'10л':1.9,'20л':3.5},badge:'',badgeText:''},
+  {id:37,category:'antifreeze',vtypes:['car','truck'],brand:'Shell',name:'Shell Antifreeze G13',viscosity:'G13',desc:'Найновіший G13 на основі гліцерину. VW, Audi, Škoda, SEAT з 2013 р.',specs:['G13','VW TL 774-J'],basePrice:550,volumes:{'1л':0.22,'5л':1,'10л':1.9},badge:'badge-new',badgeText:'Новинка'},
+  {id:38,category:'antifreeze',vtypes:['car','truck'],brand:'Total',name:'Total Coolelf Auto Supra G12+',viscosity:'G12+',desc:'Антифриз G12+ (рожевий) для сучасних двигунів. Renault, Peugeot, VW, BMW. До -40°C.',specs:['G12+','VW TL 774-F','MB 325.6','ASTM D3306'],basePrice:420,volumes:{'1л':0.22,'5л':1,'10л':1.9,'20л':3.5},badge:'',badgeText:''},
+  {id:39,category:'antifreeze',vtypes:['car'],brand:'Castrol',name:'Castrol Radicool NF',viscosity:'G12++',desc:'OAT антифриз G12++ без нітритів і амінів. Алюмінієві блоки. Toyota, Honda, Ford.',specs:['G12++','ASTM D3306','BS 6580','OAT'],basePrice:460,volumes:{'1л':0.22,'5л':1,'10л':1.9},badge:'',badgeText:''},
+  {id:40,category:'antifreeze',vtypes:['truck','agro','special'],brand:'Mobil',name:'Mobil Antifreeze для вантажівок',viscosity:'OAT',desc:'Для важких дизельних двигунів вантажівок і тракторів. Захист від кавітації гільз.',specs:['ASTM D6210','Cummins ES-1','John Deere HJ-200D','Volvo VCS'],basePrice:1800,volumes:{'10л':0.55,'20л':1,'60л':2.7,'200л':8},badge:'',badgeText:''},
+  {id:41,category:'antifreeze',vtypes:['car','truck'],brand:'Liqui Moly',name:'Liqui Moly KFS 2000 SF',viscosity:'G12',desc:'Готовий антифриз G12. Розведений до -30°C. Зручний для доливання.',specs:['G12','VW TL 774-D','Готовий'],basePrice:180,volumes:{'1.5л':1,'5л':3},badge:'',badgeText:''},
+
+  {id:42,category:'grease',vtypes:['car','truck','agro','special'],brand:'Shell',name:'Shell Alvania RL 3',viscosity:'NLGI 3',desc:'Літієва змазка для підшипників коліс, шарнірів підвіски, рульових тяг.',specs:['NLGI 3','DIN 51825','ISO L-XBCEB3'],basePrice:520,volumes:{'0.4кг':0.12,'1кг':0.28,'4кг':1,'18кг':4},badge:'',badgeText:''},
+  {id:43,category:'grease',vtypes:['car','truck'],brand:'Castrol',name:'Castrol LMX Li-Complexe',viscosity:'NLGI 2',desc:'Змазка на основі комплексного літію. ШРУС, шарніри і підшипники. До +220°C.',specs:['NLGI 2','DIN 51825 KP2K','ISO L-XBCEB2'],basePrice:160,volumes:{'0.5кг':1,'3кг':5.5},badge:'',badgeText:''},
+  {id:44,category:'grease',vtypes:['car','truck'],brand:'Liqui Moly',name:'Liqui Moly Langzeit-Fett 0',viscosity:'NLGI 0',desc:'Довгострокова змазка для рульових рейок, напрямних супорта, роз\'ємів.',specs:['NLGI 0','VKIS 5250'],basePrice:380,volumes:{'1кг':1,'5кг':4.5},badge:'',badgeText:''},
+  {id:45,category:'grease',vtypes:['truck','agro','special'],brand:'Total',name:'Total Multis EP 2',viscosity:'NLGI 2',desc:'Змазка EP для підшипників, хрестовин карданного вала. Трактори, вантажівки.',specs:['NLGI 2','DIN 51825 KP2K-30','ASTM D-4950 LB'],basePrice:480,volumes:{'1кг':0.28,'4кг':1,'18кг':4,'50кг':10},badge:'',badgeText:''},
+  {id:46,category:'grease',vtypes:['truck','special'],brand:'Mobil',name:'Mobilgrease XHP 222',viscosity:'NLGI 2',desc:'Преміум змазка для важких умов. Підшипники коліс вантажівок і будтехніки.',specs:['NLGI 2','ISO VG 220','SKF LGEP 2'],basePrice:680,volumes:{'1кг':0.28,'4кг':1,'18кг':4},badge:'',badgeText:''},
+  {id:47,category:'grease',vtypes:['car','truck'],brand:'Liqui Moly',name:'Liqui Moly LM 47 Molykote',viscosity:'MoS2',desc:'Змазка з молібденом для зубчастих передач і різьбових з\'єднань.',specs:['MoS2','DIN 51826 GPM1K-30'],basePrice:210,volumes:{'0.5кг':1,'3кг':5.5},badge:'',badgeText:''},
+  {id:48,category:'grease',vtypes:['special','agro'],brand:'Shell',name:'Shell Gadus S3 V220C 2',viscosity:'NLGI 2',desc:'Промислова змазка для екскаваторів, кранів, будтехніки та аграрних машин.',specs:['NLGI 2','ISO VG 220','DIN 51825','ASTM D-4950'],basePrice:2800,volumes:{'4кг':0.28,'18кг':1,'50кг':2.6},badge:'',badgeText:''},
+  {id:49,category:'grease',vtypes:['car','truck','agro'],brand:'Total',name:'Total Aerosol TS Spray',viscosity:'Спрей',desc:'Аерозольна змазка для замків, петель, ланцюгів. Витісняє вологу. Ефект 6 місяців.',specs:['Антикорозійний','Витискувач вологи'],basePrice:95,volumes:{'0.4л':1},badge:'',badgeText:''},
+  {id:50,category:'grease',vtypes:['car','truck'],brand:'Liqui Moly',name:'Liqui Moly Copper Spray',viscosity:'Спрей',desc:'Мідний спрей для гальмівних колодок, різьбових з\'єднань. До +1100°C.',specs:['Мідна основа','До +1100°C'],basePrice:145,volumes:{'0.25л':1},badge:'',badgeText:''},
+  {id:51,category:'grease',vtypes:['car','truck'],brand:'Castrol',name:'Castrol Moly Grease',viscosity:'MoS2',desc:'Молібденова змазка для ШРУСів і карданних шарнірів. Захист від задирів.',specs:['MoS2','NLGI 2','DIN 51825'],basePrice:190,volumes:{'0.5кг':1,'3кг':5.5},badge:'',badgeText:''},
+  {id:52,category:'grease',vtypes:['truck','agro','special'],brand:'Total',name:'Total Dynatrans EP',viscosity:'GL-5',desc:'Трансмісійна олива для мостів і редукторів сільгосптехніки та вантажівок.',specs:['API GL-5','ZF TE-ML 05A','MAN 342 type M'],basePrice:3200,volumes:{'10л':0.55,'20л':1,'60л':2.8,'200л':8.5},badge:'',badgeText:''},
 ];
 
 const CATEGORY_LABELS = {
@@ -259,91 +440,211 @@ const CATEGORY_LABELS = {
   truck:'Вантажівки / Фури', trans:'Трансмісійні', antifreeze:'Антифризи', grease:'Змазки та спреї'
 };
 
-let activeCat = 'all', activeBrand = 'all', sortMode = 'default';
+// ── STATE ──
+let activeCat = 'all', activeBrand = 'all', activeVtype = 'all', sortMode = 'default';
+// Per-product volume selection
+const selectedVolumes = {};
 
+// ── VOLUME SELECTOR ──
+function getDefaultVolume(p) {
+  return Object.keys(p.volumes)[0];
+}
+function getSelectedVolume(p) {
+  return selectedVolumes[p.id] || getDefaultVolume(p);
+}
+function getPrice(p, vol) {
+  const mult = p.volumes[vol] || 1;
+  return Math.round(p.basePrice * mult);
+}
+
+function setVolume(pid, vol) {
+  selectedVolumes[pid] = vol;
+  // Update price + volume buttons in DOM without full re-render
+  const card = document.querySelector(`.product-card[data-id="${pid}"]`);
+  if (!card) return;
+  const p = PRODUCTS.find(x => x.id === pid);
+  const price = getPrice(p, vol);
+  card.querySelector('.product-price').innerHTML = `${price.toLocaleString('uk-UA')} <span class="product-price-unit">грн</span>`;
+  card.querySelector('.price-per-unit').textContent = `за ${vol}`;
+  card.querySelectorAll('.vol-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.vol === vol);
+  });
+}
+
+// ── PRODUCT CARD ──
 function productCard(p) {
-  const imgHtml = p.img
-    ? `<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-    : '';
-  const fallback = `<div class="product-no-img" style="${p.img ? 'display:none' : ''}">${p.emoji}</div>`;
+  const vol = getSelectedVolume(p);
+  const price = getPrice(p, vol);
   const badge = p.badge ? `<div class="product-badge ${p.badge}">${p.badgeText}</div>` : '';
   const specs = p.specs.map(s => `<span class="spec-tag">${s}</span>`).join('');
-  return `<div class="product-card">
-    <div class="product-img-wrap">${imgHtml}${fallback}${badge}</div>
+  const vols = Object.keys(p.volumes).map(v =>
+    `<button class="vol-btn ${v === vol ? 'active' : ''}" data-vol="${v}" onclick="setVolume(${p.id},'${v}')">${v}</button>`
+  ).join('');
+
+  return `<div class="product-card" data-id="${p.id}">
+    <div class="product-img-wrap">
+      ${brandPlaceholder(p)}
+      ${badge}
+    </div>
     <div class="product-body">
       <div class="product-brand">${p.brand}</div>
       <div class="product-name">${p.name}</div>
       <div class="product-desc">${p.desc}</div>
       <div class="product-specs">${specs}</div>
+      <div class="volume-selector">${vols}</div>
       <div class="product-footer">
-        <div class="product-price">${p.price.toLocaleString('uk-UA')} <span class="product-price-unit">грн</span></div>
-        <button class="btn-order" onclick="openModal('${p.name.replace(/'/g,"\\'")}')">ЗАМОВИТИ</button>
+        <div class="price-wrap">
+          <div class="product-price">${price.toLocaleString('uk-UA')} <span class="product-price-unit">грн</span></div>
+          <div class="price-per-unit">за ${vol}</div>
+        </div>
+        <button class="btn-order" onclick="openModal('${p.name.replace(/'/g,"\\'")} / ${vol}')">ЗАМОВИТИ</button>
       </div>
     </div>
   </div>`;
 }
 
+// ── SIDEBAR BUILD ──
 function buildSidebar() {
   const counts = {};
   Object.keys(CATEGORY_LABELS).forEach(k => {
     counts[k] = k === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.category === k).length;
   });
-  document.getElementById('catList').innerHTML = Object.entries(CATEGORY_LABELS).map(([k, v]) =>
-    `<div class="sb-item ${k === activeCat ? 'active' : ''}" onclick="setCat('${k}',this)"><span>${v}</span><span class="sb-count">${counts[k]}</span></div>`
+  document.getElementById('catList').innerHTML = Object.entries(CATEGORY_LABELS).map(([k,v]) =>
+    `<div class="sb-item ${k===activeCat?'active':''}" onclick="setCat('${k}',this)"><span>${v}</span><span class="sb-count">${counts[k]}</span></div>`
   ).join('');
+  renderBrandList();
+}
+
+function renderBrandList() {
+  const query = (document.getElementById('brandSearch')?.value || '').toLowerCase().trim();
   const brands = ['all', ...new Set(PRODUCTS.map(p => p.brand))].sort();
-  document.getElementById('brandList').innerHTML = brands.map(b => {
+  const filtered = brands.filter(b => b === 'all' || b.toLowerCase().includes(query));
+  document.getElementById('brandList').innerHTML = filtered.map(b => {
     const cnt = b === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.brand === b).length;
-    return `<div class="sb-item ${activeBrand === b ? 'active' : ''}" onclick="setBrand('${b}',this)"><span>${b === 'all' ? 'Всі бренди' : b}</span><span class="sb-count">${cnt}</span></div>`;
+    return `<div class="sb-item ${activeBrand===b?'active':''}" onclick="setBrand('${b}',this)">
+      <span>${b==='all'?'Всі бренди':b}</span><span class="sb-count">${cnt}</span>
+    </div>`;
   }).join('');
 }
 
-function setCat(cat, el) { activeCat = cat; document.querySelectorAll('#catList .sb-item').forEach(i => i.classList.remove('active')); el.classList.add('active'); applyFilters(); }
-function setBrand(b, el) { activeBrand = b; document.querySelectorAll('#brandList .sb-item').forEach(i => i.classList.remove('active')); el.classList.add('active'); applyFilters(); }
-function sortBy(mode, el) { sortMode = mode; document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); applyFilters(); }
-function clearSearch() { document.getElementById('searchInput').value = ''; applyFilters(); }
-function resetFilters() {
-  activeCat = 'all'; activeBrand = 'all'; sortMode = 'default';
-  document.getElementById('searchInput').value = '';
-  document.getElementById('priceMin').value = '';
-  document.getElementById('priceMax').value = '';
-  buildSidebar();
-  document.querySelectorAll('.sort-btn').forEach((b,i) => b.classList.toggle('active', i === 0));
+function filterBrandList() { renderBrandList(); }
+
+// ── ACTIVE FILTERS BAR ──
+function renderActiveFilters() {
+  const tags = [];
+  if (activeVtype !== 'all') {
+    const labels = {car:'Легкові',truck:'Вантажівки',agro:'Трактори',special:'Спецтехніка'};
+    tags.push(`<div class="af-tag">${labels[activeVtype]}<span class="af-remove" onclick="setVtype('all',null)">✕</span></div>`);
+  }
+  if (activeCat !== 'all') {
+    tags.push(`<div class="af-tag">${CATEGORY_LABELS[activeCat]}<span class="af-remove" onclick="setCat('all',null)">✕</span></div>`);
+  }
+  if (activeBrand !== 'all') {
+    tags.push(`<div class="af-tag">${activeBrand}<span class="af-remove" onclick="setBrand('all',null)">✕</span></div>`);
+  }
+  const q = document.getElementById('searchInput')?.value?.trim();
+  if (q) tags.push(`<div class="af-tag">«${q}»<span class="af-remove" onclick="clearSearch()">✕</span></div>`);
+  document.getElementById('activeFilters').innerHTML = tags.join('');
+}
+
+// ── SETTERS ──
+function setVtype(vt, el) {
+  activeVtype = vt;
+  document.querySelectorAll('.vt-btn').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  else document.querySelectorAll('.vt-btn').forEach(b => { if(b.onclick.toString().includes(`'all'`)) b.classList.add('active'); });
   applyFilters();
 }
-
-function applyFilters() {
-  const q = (document.getElementById('searchInput').value || '').toLowerCase().trim();
-  const mn = parseFloat(document.getElementById('priceMin').value) || 0;
-  const mx = parseFloat(document.getElementById('priceMax').value) || Infinity;
-  let res = PRODUCTS.filter(p => {
-    if (activeCat !== 'all' && p.category !== activeCat) return false;
-    if (activeBrand !== 'all' && p.brand !== activeBrand) return false;
-    if (p.price < mn || p.price > mx) return false;
-    if (q && !p.name.toLowerCase().includes(q) && !p.brand.toLowerCase().includes(q) && !p.desc.toLowerCase().includes(q) && !p.specs.some(s => s.toLowerCase().includes(q))) return false;
-    return true;
-  });
-  if (sortMode === 'price-asc') res.sort((a,b) => a.price - b.price);
-  else if (sortMode === 'price-desc') res.sort((a,b) => b.price - a.price);
-  else if (sortMode === 'name') res.sort((a,b) => a.name.localeCompare(b.name, 'uk'));
-  document.getElementById('resultCount').textContent = res.length;
-  const grid = document.getElementById('catalogGrid');
-  grid.innerHTML = res.length === 0
-    ? `<div class="no-results"><h3>Нічого не знайдено</h3><p>Спробуйте змінити фільтри</p></div>`
-    : res.map(productCard).join('');
+function setCat(cat, el) {
+  activeCat = cat;
+  document.querySelectorAll('#catList .sb-item').forEach(i => i.classList.remove('active'));
+  if (el) el.classList.add('active');
+  else buildSidebar();
+  applyFilters();
+}
+function setBrand(b, el) {
+  activeBrand = b;
+  renderBrandList();
+  applyFilters();
+}
+function sortBy(mode, el) {
+  sortMode = mode;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active'); applyFilters();
+}
+function clearSearch() {
+  document.getElementById('searchInput').value = ''; applyFilters();
+}
+function resetFilters() {
+  activeCat='all'; activeBrand='all'; activeVtype='all'; sortMode='default';
+  document.getElementById('searchInput').value='';
+  document.getElementById('priceMin').value='';
+  document.getElementById('priceMax').value='';
+  document.getElementById('brandSearch').value='';
+  document.querySelectorAll('.vt-btn').forEach((b,i)=>b.classList.toggle('active',i===0));
+  document.querySelectorAll('.sort-btn').forEach((b,i)=>b.classList.toggle('active',i===0));
+  buildSidebar(); applyFilters();
+}
+function toggleSection(head) {
+  head.parentElement.classList.toggle('collapsed');
 }
 
-function openModal(name) { document.getElementById('modalProduct').textContent = name; document.getElementById('modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
-document.addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60); });
-function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-window.addEventListener('load', () => { setTimeout(() => { const l = document.getElementById('loader'); if(l) l.classList.add('hidden'); }, 1200); });
+// ── APPLY FILTERS ──
+function applyFilters() {
+  const q = (document.getElementById('searchInput').value||'').toLowerCase().trim();
+  const mn = parseFloat(document.getElementById('priceMin').value)||0;
+  const mx = parseFloat(document.getElementById('priceMax').value)||Infinity;
 
-const urlParams = new URLSearchParams(window.location.search);
-const catParam = urlParams.get('cat');
-if (catParam && CATEGORY_LABELS[catParam]) activeCat = catParam;
+  let res = PRODUCTS.filter(p => {
+    if (activeCat!=='all' && p.category!==activeCat) return false;
+    if (activeBrand!=='all' && p.brand!==activeBrand) return false;
+    if (activeVtype!=='all' && !p.vtypes.includes(activeVtype)) return false;
+    const vol = getSelectedVolume(p);
+    const price = getPrice(p, vol);
+    if (price<mn||price>mx) return false;
+    if (q && !p.name.toLowerCase().includes(q) && !p.brand.toLowerCase().includes(q) &&
+        !p.desc.toLowerCase().includes(q) && !p.viscosity.toLowerCase().includes(q) &&
+        !p.specs.some(s=>s.toLowerCase().includes(q))) return false;
+    return true;
+  });
+
+  if (sortMode==='price-asc') res.sort((a,b)=>getPrice(a,getSelectedVolume(a))-getPrice(b,getSelectedVolume(b)));
+  else if (sortMode==='price-desc') res.sort((a,b)=>getPrice(b,getSelectedVolume(b))-getPrice(a,getSelectedVolume(a)));
+  else if (sortMode==='name') res.sort((a,b)=>a.name.localeCompare(b.name,'uk'));
+
+  document.getElementById('resultCount').textContent = res.length;
+  const grid = document.getElementById('catalogGrid');
+  grid.innerHTML = res.length===0
+    ? `<div class="no-results"><h3>Нічого не знайдено</h3><p>Спробуйте змінити фільтри</p></div>`
+    : res.map(productCard).join('');
+
+  renderActiveFilters();
+}
+
+// ── MODAL ──
+function openModal(name) {
+  document.getElementById('modalProduct').textContent = name;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// ── NAV ──
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);});
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+window.addEventListener('load',()=>{setTimeout(()=>{const l=document.getElementById('loader');if(l)l.classList.add('hidden');},1200);});
+
+// ── INIT ──
+const urlParams=new URLSearchParams(window.location.search);
+const catParam=urlParams.get('cat');
+if(catParam&&CATEGORY_LABELS[catParam])activeCat=catParam;
+const vtParam=urlParams.get('vt');
+if(vtParam)activeVtype=vtParam;
 buildSidebar();
 applyFilters();
 </script>
