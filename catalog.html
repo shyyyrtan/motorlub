@@ -148,58 +148,110 @@
 
 <script>
 const PRODUCTS = [
-  {id:1,category:'motor',brand:'Mobil 1',name:'Mobil 1 5W-40 / 4л',desc:'Повністю синтетична моторна олива для бензинових і дизельних двигунів. Захист при запуску в мороз до -40°C. Для Audi, BMW, Mercedes, VW.',specs:['VW 502.00/505.00','BMW LL-01','MB 229.3','API SN'],price:890,badge:'badge-hit',badgeText:'Хіт продажів',emoji:'🛢️'},
-  {id:2,category:'motor',brand:'Castrol',name:'Castrol EDGE 10W-40 / 4л',desc:'Синтетика для Toyota, Honda, Nissan, Hyundai з пробігом 100 000+ км. Посилена формула від зношування.',specs:['ACEA A3/B4','API SL/CF','VW 501.01'],price:720,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:3,category:'motor',brand:'Shell',name:'Shell Helix Ultra 5W-30 / 4л',desc:'Повна синтетика GTL для BMW, Ford, Renault з турбодвигунами. Офіційний допуск BMW Longlife-04.',specs:['BMW LL-04','MB 229.51','VW 504.00/507.00','Ford WSS-M2C913'],price:1050,badge:'badge-new',badgeText:'Новинка',emoji:'🛢️'},
-  {id:4,category:'motor',brand:'Liqui Moly',name:'Liqui Moly 0W-30 Longlife / 5л',desc:'Лонгліф синтетика для BMW, Mercedes, VW Group. Інтервал заміни до 30 000 км. Porsche, Audi.',specs:['BMW LL-04','MB 229.51','VW 504.00/507.00','Porsche C30'],price:1240,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:5,category:'motor',brand:'Total',name:'Total Quartz 9000 5W-40 / 5л',desc:'Французька синтетика для Peugeot, Citroen, Renault. Відповідає стандартам Euro V/VI.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2296'],price:810,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:6,category:'motor',brand:'Mobil',name:'Mobil Super 3000 5W-40 / 4л',desc:'Синтетика підвищеної якості для турбодизельних двигунів. Відмінний захист у будь-яких умовах.',specs:['ACEA A3/B4','VW 502.00/505.00','MB 229.3','API SL/CF'],price:760,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:7,category:'motor',brand:'Castrol',name:'Castrol GTX 15W-40 / 5л',desc:'Напівсинтетика для бюджетного сегменту. Захист від корозії і зношування для старих авто.',specs:['ACEA A3/B3','API SJ/CF','MB 229.1'],price:540,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:8,category:'motor',brand:'Shell',name:'Shell Rimula R4 L 15W-40 / 4л',desc:'Мінеральна олива для атмосферних і турбодизелів старого покоління. ГАЗ, КАМАЗ, МАЗ, ЗіЛ.',specs:['API CF-4/SG','ACEA E2','MB 228.1','Volvo VDS'],price:430,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:9,category:'motor',brand:'Liqui Moly',name:'Liqui Moly MoS2 10W-40 / 4л',desc:'Напівсинтетика з дисульфідом молібдену. Знижує тертя і знос. Opel, Skoda, VW з великим пробігом.',specs:['ACEA A3/B4','API SL/CF','VW 501.01/505.00'],price:680,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:10,category:'motor',brand:'Total',name:'Total Quartz 7000 10W-40 / 5л',desc:'Якісна напівсинтетика для французьких і азійських автомобілів. Renault, Peugeot, Citroen, Toyota.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2295'],price:590,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:11,category:'motor',brand:'Shell',name:'Shell Helix HX7 10W-40 / 4л',desc:'Напівсинтетика для Renault, Peugeot, Citroen, Opel. Відмінний захист при міському режимі їзди.',specs:['ACEA A3/B4','Renault RN0700','API SL'],price:540,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:12,category:'agro',brand:'Shell',name:'Shell Rimula R4 15W-40 / 20л',desc:'Для тракторів John Deere, Fendt, Claas. Захист при важких навантаженнях — польові роботи, орання, жнива.',specs:['API CF-4/SG','CAT TO-2','Komatsu','John Deere'],price:3200,badge:'badge-hit',badgeText:'Хіт',emoji:'🚜'},
-  {id:13,category:'agro',brand:'Total',name:'Total Multagri Pro 10W-40 / 20л',desc:'Універсальна олива UTTO для тракторів із мокрими гальмами та гідравлікою. МТЗ, ЮМЗ, Т-150, Case, New Holland.',specs:['UTTO','John Deere J20C','Case MS-1210','Allison C4'],price:4100,badge:'',badgeText:'',emoji:'🚜'},
-  {id:14,category:'agro',brand:'Mobil',name:'Mobil Delvac MX 15W-40 / 20л',desc:'Преміум мінеральна олива для комбайнів, тракторів і сільгосптехніки.',specs:['API CJ-4','ACEA E9','Cummins CES 20081','Volvo VDS-4'],price:3800,badge:'',badgeText:'',emoji:'🚜'},
-  {id:15,category:'agro',brand:'Liqui Moly',name:'Liqui Moly Тракторна 15W-40 / 10л',desc:'Для двигунів МТЗ-80/82, МТЗ-1025, ЮМЗ-6. Захист поршнів та гільз циліндрів.',specs:['API CF','CCMC D4','MIL-L-2104E'],price:1950,badge:'',badgeText:'',emoji:'🚜'},
-  {id:16,category:'agro',brand:'Shell',name:'Shell Spirax S4 TXM 10W-30 / 20л',desc:'UTTO для тракторів зі спільною гідравлічно-трансмісійною системою.',specs:['UTTO','John Deere J20C/D','Ford M2C 134-D','ZF TE-ML 06B'],price:4600,badge:'',badgeText:'',emoji:'🚜'},
-  {id:17,category:'agro',brand:'Castrol',name:'Castrol Agri MP 15W-40 / 10л',desc:'Для навантажувачів, культиваторів, міні-тракторів. Захист від зносу.',specs:['API CF','UTTO','John Deere J27'],price:2100,badge:'',badgeText:'',emoji:'🚜'},
-  {id:18,category:'agro',brand:'Total',name:'Total Dynatrans MPV 10W-40 / 20л',desc:'Для трансмісій і мостів сільгосптехніки. Рівний хід при навантаженнях.',specs:['ZF TE-ML 05C/06B','John Deere J20C','Case MS-1207'],price:4300,badge:'',badgeText:'',emoji:'🚜'},
-  {id:19,category:'agro',brand:'Mobil',name:'Mobil Agri Extra 10W-40 / 20л',desc:'Всесезонна олива для двигунів, трансмісій і гідравліки. Один продукт замість трьох.',specs:['API CJ-4','UTTO','Allison C4','Cat TO-4'],price:3950,badge:'badge-new',badgeText:'Новинка',emoji:'🚜'},
-  {id:20,category:'truck',brand:'Shell',name:'Shell Rimula R6 LM 10W-40 / 20л',desc:'Для вантажівок Euro VI — Scania, Volvo, Mercedes Actros, MAN, DAF. Підтримує DPF.',specs:['ACEA E6/E9','Scania LDF-3','Volvo VDS-4','MB 228.51'],price:6800,badge:'badge-hit',badgeText:'Хіт',emoji:'🚛'},
-  {id:21,category:'truck',brand:'Mobil',name:'Mobil Delvac 1 5W-40 / 20л',desc:'Синтетика для важких умов. Scania, Volvo, MAN Euro V/VI. Інтервал до 100 000 км.',specs:['ACEA E4/E7','Scania LDF-2','Volvo VDS-3','MB 228.5'],price:8200,badge:'',badgeText:'',emoji:'🚛'},
-  {id:22,category:'truck',brand:'Castrol',name:'Castrol Vecton 10W-40 / 20л',desc:'Для вантажівок з тривалими пробігами. Стабільність оливи весь інтервал.',specs:['ACEA E7','Volvo VDS-3','MB 228.3','MAN M3275-1'],price:5900,badge:'',badgeText:'',emoji:'🚛'},
-  {id:23,category:'truck',brand:'Total',name:'Total Rubia TIR 8600 10W-40 / 20л',desc:'Напівсинтетика для вантажних авто. Гірські дороги, перевантаження. Renault, Iveco.',specs:['ACEA E7/E9','Renault VI RLD-3','MB 228.3','MAN M 3275'],price:5400,badge:'',badgeText:'',emoji:'🚛'},
-  {id:24,category:'truck',brand:'Liqui Moly',name:'Liqui Moly Truck 10W-40 / 20л',desc:'Синтетика для вантажівок і автобусів Euro IV/V. DAF, Iveco, Scania, Volvo.',specs:['ACEA E4/E7','Volvo VDS-3','MB 228.5','MAN M3277'],price:7100,badge:'',badgeText:'',emoji:'🚛'},
-  {id:25,category:'truck',brand:'Shell',name:'Shell Rimula R3 X 15W-40 / 20л',desc:'Для вантажівок старшого покоління — КАМАЗ, МАЗ, ЗіЛ, ГАЗ.',specs:['API CF-4/SG','ACEA E3/B3','Cummins 20077','Volvo VDS-2'],price:3700,badge:'',badgeText:'',emoji:'🚛'},
-  {id:26,category:'truck',brand:'Mobil',name:'Mobil Delvac MX Extra 10W-40 / 20л',desc:'Для вантажних авто з великим пробігом. Стабільна в\'язкість при тривалій роботі.',specs:['ACEA E7','MB 228.3','Volvo VDS-3','Cummins CES 20076'],price:5100,badge:'',badgeText:'',emoji:'🚛'},
-  {id:27,category:'truck',brand:'Castrol',name:'Castrol Vecton Long Drain 10W-40 / 20л',desc:'Для фур — інтервал 100 000+ км. Чистота двигуна весь час.',specs:['ACEA E6/E9','Volvo VDS-4.5','Renault VI RLD-4','MB 228.51'],price:7600,badge:'',badgeText:'',emoji:'🚛'},
-  {id:28,category:'truck',brand:'Total',name:'Total Rubia TIR 9200 FE 10W-30 / 20л',desc:'Паливоекономічна для нових Euro VI. Scania, Volvo, Renault Trucks.',specs:['ACEA E6','Scania LDF-4','Volvo VDS-4.5','Renault VI RLD-4'],price:8900,badge:'badge-new',badgeText:'Новинка',emoji:'🚛'},
-  {id:29,category:'truck',brand:'Shell',name:'Shell Spirax S5 ATEFL 75W / 20л',desc:'Трансмісійна олива для АКПП вантажівок. ZF Astronic, Eaton Fuller.',specs:['ZF TE-ML 02C','MB 236.14','API GL-4'],price:9200,badge:'',badgeText:'',emoji:'🚛'},
-  {id:30,category:'trans',brand:'ZF',name:'ZF LifeguardFluid 8 / 1л',desc:'Оригінальна рідина для АКПП ZF 8HP. BMW, Audi, Porsche, Land Rover, Jaguar, Maserati.',specs:['ZF TE-ML 14B','BMW 83220440214','Audi G 052 529'],price:680,badge:'',badgeText:'',emoji:'⚙️'},
-  {id:31,category:'trans',brand:'Shell',name:'Shell Spirax S4 G 75W-90 / 4л',desc:'Синтетична олива для механічних КПП та мостів. Subaru, Mitsubishi, Toyota.',specs:['API GL-4/GL-5','MT-1','ZF TE-ML 16C'],price:890,badge:'',badgeText:'',emoji:'⚙️'},
-  {id:32,category:'trans',brand:'Castrol',name:'Castrol BOT 530 / 4л',desc:'Рідина для АКПП Honda, Acura. Оригінальний аналог Honda ATF Z1.',specs:['Honda ATF Z1','Honda ATF DW-1'],price:720,badge:'',badgeText:'',emoji:'⚙️'},
-  {id:33,category:'trans',brand:'Mobil',name:'Mobil ATF 3309 / 4л',desc:'Для АКПП Toyota, Lexus, Hyundai, Kia. Замінник Toyota ATF WS, Hyundai SP-IV.',specs:['Toyota ATF WS','Hyundai SP-IV','Aisin ATF 6+'],price:760,badge:'',badgeText:'',emoji:'⚙️'},
-  {id:34,category:'trans',brand:'Total',name:'Total Transmission DUAL 9 FE / 4л',desc:'Рідина для подвійних зчеплень DSG/DCT. VW, Audi, BMW, Ford PowerShift.',specs:['VW TL 521 82','BMW 83 22 2147 477','Ford M2C936-A'],price:1100,badge:'badge-new',badgeText:'Новинка',emoji:'⚙️'},
-  {id:35,category:'trans',brand:'Liqui Moly',name:'Liqui Moly Top Tec ATF 1800 / 4л',desc:'Для сучасних АКПП. Замінює Dexron VI, Mercon V, ATF+4.',specs:['Dexron VI','Mercon V','ATF+4','Allison C4'],price:820,badge:'',badgeText:'',emoji:'⚙️'},
-  {id:36,category:'trans',brand:'Shell',name:'Shell Spirax S6 GXME 75W-80 / 4л',desc:'Синтетична олива для МКПП Mercedes, MAN, Volvo, Scania. Знижує витрату палива.',specs:['MB 235.8','MAN 341 E4','Volvo 97307','ZF TE-ML 02E'],price:1240,badge:'',badgeText:'',emoji:'⚙️'},
-  {id:37,category:'antifreeze',brand:'Shell',name:'Shell Premium Antifreeze G11 / 5л',desc:'Охолоджувальна рідина G11 (зелена). Авто до 2000 р.в. Захист від -37°C до +135°C.',specs:['ASTM D3306','BS 6580','G11'],price:340,badge:'',badgeText:'',emoji:'🧊'},
-  {id:38,category:'antifreeze',brand:'Total',name:'Total Coolelf Auto Supra G12+ / 5л',desc:'Антифриз G12+ (рожевий) для сучасних двигунів. Renault, Peugeot, VW, BMW. До -40°C.',specs:['G12+','VW TL 774-F','MB 325.6','ASTM D3306'],price:420,badge:'',badgeText:'',emoji:'🧊'},
-  {id:39,category:'antifreeze',brand:'Castrol',name:'Castrol Radicool NF / 5л',desc:'OAT антифриз G12++ без нітритів і амінів. Алюмінієві блоки. Toyota, Honda, Ford.',specs:['G12++','ASTM D3306','BS 6580','OAT'],price:460,badge:'',badgeText:'',emoji:'🧊'},
-  {id:40,category:'antifreeze',brand:'Shell',name:'Shell Antifreeze G13 / 5л',desc:'Найновіший G13 на основі гліцерину. VW, Audi, Škoda, SEAT з 2013 р.',specs:['G13','VW TL 774-J'],price:550,badge:'badge-new',badgeText:'Новинка',emoji:'🧊'},
-  {id:41,category:'antifreeze',brand:'Mobil',name:'Mobil Antifreeze для вантажівок / 20л',desc:'Для важких дизельних двигунів вантажівок і тракторів. Захист від кавітації гільз.',specs:['ASTM D6210','Cummins ES-1','John Deere HJ-200D','Volvo VCS'],price:1800,badge:'',badgeText:'',emoji:'🧊'},
-  {id:42,category:'antifreeze',brand:'Liqui Moly',name:'Liqui Moly KFS 2000 SF / 1.5л',desc:'Готовий антифриз G12. Розведений до -30°C. Зручний для доливання.',specs:['G12','VW TL 774-D','Готовий до застосування'],price:180,badge:'',badgeText:'',emoji:'🧊'},
-  {id:43,category:'grease',brand:'Shell',name:'Shell Alvania RL 3 / 4кг',desc:'Літієва змазка для підшипників коліс, шарнірів підвіски, рульових тяг.',specs:['NLGI 3','DIN 51825','ISO L-XBCEB3'],price:520,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:44,category:'grease',brand:'Castrol',name:'Castrol LMX Li-Complexe / 0.5кг',desc:'Змазка на основі комплексного літію. ШРУС, шарніри і підшипники. До +220°C.',specs:['NLGI 2','DIN 51825 KP2K','ISO L-XBCEB2'],price:160,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:45,category:'grease',brand:'Liqui Moly',name:'Liqui Moly Langzeit-Fett 0 / 1кг',desc:'Довгострокова змазка для рульових рейок, напрямних супорта, роз\'ємів.',specs:['NLGI 0','VKIS 5250'],price:380,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:46,category:'grease',brand:'Total',name:'Total Multis EP 2 / 4кг',desc:'Змазка EP для підшипників, хрестовин карданного вала. Трактори, вантажівки.',specs:['NLGI 2','DIN 51825 KP2K-30','ASTM D-4950 LB'],price:480,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:47,category:'grease',brand:'Mobil',name:'Mobilgrease XHP 222 / 4кг',desc:'Преміум змазка для важких умов. Підшипники коліс вантажівок і будтехніки.',specs:['NLGI 2','ISO VG 220','SKF LGEP 2'],price:680,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:48,category:'grease',brand:'Liqui Moly',name:'Liqui Moly LM 47 Molykote / 0.5кг',desc:'Змазка з молібденом для зубчастих передач і різьбових з\'єднань.',specs:['MoS2','DIN 51826 GPM1K-30'],price:210,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:49,category:'grease',brand:'Shell',name:'Shell Gadus S3 V220C 2 / 18кг',desc:'Промислова змазка для екскаваторів, кранів, будтехніки та аграрних машин.',specs:['NLGI 2','ISO VG 220','DIN 51825','ASTM D-4950'],price:2800,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:50,category:'grease',brand:'Total',name:'Total Aerosol TS Spray 0.4л',desc:'Аерозольна змазка для замків, петель, ланцюгів. Витісняє вологу. Ефект 6 місяців.',specs:['Антикорозійний','Витискувач вологи'],price:95,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:51,category:'grease',brand:'Liqui Moly',name:'Liqui Moly Copper Spray / 0.25л',desc:'Мідний спрей для гальмівних колодок, різьбових з\'єднань. До +1100°C.',specs:['Мідна основа','До +1100°C'],price:145,badge:'',badgeText:'',emoji:'🛢️'},
-  {id:52,category:'grease',brand:'Castrol',name:'Castrol Moly Grease / 0.5кг',desc:'Молібденова змазка для ШРУСів і карданних шарнірів. Захист від задирів.',specs:['MoS2','NLGI 2','DIN 51825'],price:190,badge:'',badgeText:'',emoji:'🛢️'},
+  // 1
+  {id:1,category:'motor',brand:'Mobil 1',name:'Mobil 1 5W-40 / 4л',desc:'Повністю синтетична моторна олива для бензинових і дизельних двигунів. Захист при запуску в мороз до -40°C. Для Audi, BMW, Mercedes, VW.',specs:['VW 502.00/505.00','BMW LL-01','MB 229.3','API SN'],price:890,badge:'badge-hit',badgeText:'Хіт продажів',img:'https://img6.itbox.ua/1600x1600/prod_img/6/U0489906_big.webp',emoji:'🛢️'},
+  // 2
+  {id:2,category:'motor',brand:'Mobil',name:'Mobil Super 3000 5W-40 / 4л',desc:'Синтетика підвищеної якості для турбодизельних двигунів. Відмінний захист у будь-яких умовах.',specs:['ACEA A3/B4','VW 502.00/505.00','MB 229.3','API SL/CF'],price:760,badge:'',badgeText:'',img:'https://images.prom.ua/4545953987_w640_h640_mastilo-mobil-super.jpg',emoji:'🛢️'},
+  // 3
+  {id:3,category:'motor',brand:'Castrol',name:'Castrol EDGE 10W-40 / 4л',desc:'Синтетика для Toyota, Honda, Nissan, Hyundai з пробігом 100 000+ км. Посилена формула від зношування.',specs:['ACEA A3/B4','API SL/CF','VW 501.01'],price:720,badge:'',badgeText:'',img:'https://content2.rozetka.com.ua/goods/images/big/552650684.jpg',emoji:'🛢️'},
+  // 4
+  {id:4,category:'motor',brand:'Castrol',name:'Castrol GTX 15W-40 / 5л',desc:'Напівсинтетика для бюджетного сегменту. Захист від корозії і зношування для старих авто.',specs:['ACEA A3/B3','API SJ/CF','MB 229.1'],price:540,badge:'',badgeText:'',img:'https://content2.rozetka.com.ua/goods/images/big/637998994.jpg',emoji:'🛢️'},
+  // 5
+  {id:5,category:'motor',brand:'Shell',name:'Shell Helix Ultra 5W-30 / 4л',desc:'Повна синтетика GTL для BMW, Ford, Renault з турбодвигунами. Офіційний допуск BMW Longlife-04.',specs:['BMW LL-04','MB 229.51','VW 504.00/507.00','Ford WSS-M2C913'],price:1050,badge:'badge-new',badgeText:'Новинка',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/1/9/1995541_3.webp',emoji:'🛢️'},
+  // 6
+  {id:6,category:'motor',brand:'Shell',name:'Shell Helix HX7 10W-40 / 4л',desc:'Напівсинтетика для Renault, Peugeot, Citroen, Opel. Відмінний захист при міському режимі їзди.',specs:['ACEA A3/B4','Renault RN0700','API SL'],price:540,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/_/-/_-_001541_shell_helix_hx7_10w-40_4l.png',emoji:'🛢️'},
+  // 7
+  {id:7,category:'motor',brand:'Liqui Moly',name:'Liqui Moly 0W-30 Longlife / 5л',desc:'Лонгліф синтетика для BMW, Mercedes, VW Group. Інтервал заміни до 30 000 км. Porsche, Audi.',specs:['BMW LL-04','MB 229.51','VW 504.00/507.00','Porsche C30'],price:1240,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/l/i/liqui_moly_synthoil_longtime_0w30_5l_1.webp',emoji:'🛢️'},
+  // 8
+  {id:8,category:'motor',brand:'Liqui Moly',name:'Liqui Moly MoS2 10W-40 / 4л',desc:'Напівсинтетика з дисульфідом молібдену. Знижує тертя і знос. Opel, Skoda, VW з великим пробігом.',specs:['ACEA A3/B4','API SL/CF','VW 501.01/505.00'],price:680,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/5/1536_3.webp',emoji:'🛢️'},
+  // 9
+  {id:9,category:'motor',brand:'Total',name:'Total Quartz 9000 5W-40 / 5л',desc:'Французька синтетика для Peugeot, Citroen, Renault. Відповідає стандартам Euro V/VI.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2296'],price:810,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/1/1162_3.webp',emoji:'🛢️'},
+  // 10
+  {id:10,category:'motor',brand:'Total',name:'Total Quartz 7000 10W-40 / 5л',desc:'Якісна напівсинтетика для французьких і азійських автомобілів. Renault, Peugeot, Citroen, Toyota.',specs:['ACEA A3/B4','Renault RN0700','PSA B71 2295'],price:590,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/3/134_3.webp',emoji:'🛢️'},
+  // 11
+  {id:11,category:'agro',brand:'Shell',name:'Shell Rimula R4 15W-40 / 20л',desc:'Для тракторів John Deere, Fendt, Claas. Захист при важких навантаженнях — польові роботи, орання, жнива.',specs:['API CF-4/SG','CAT TO-2','Komatsu','John Deere'],price:3200,badge:'badge-hit',badgeText:'Хіт',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/r/i/rimula-r4-multi-10w-30_1_3.webp',emoji:'🚜'},
+  // 12
+  {id:12,category:'agro',brand:'Total',name:'Total Multagri Pro 10W-40 / 20л',desc:'Універсальна олива UTTO для тракторів із мокрими гальмами та гідравлікою. МТЗ, ЮМЗ, Т-150, Case, New Holland.',specs:['UTTO','John Deere J20C','Case MS-1210','Allison C4'],price:4100,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/576_0.jpg',emoji:'🚜'},
+  // 13
+  {id:13,category:'agro',brand:'Mobil',name:'Mobil Delvac MX 15W-40 / 20л',desc:'Преміум мінеральна олива для комбайнів, тракторів і сільгосптехніки.',specs:['API CJ-4','ACEA E9','Cummins CES 20081','Volvo VDS-4'],price:3800,badge:'',badgeText:'',img:'https://s.ek.ua/jpg_zoom1/1587542.jpg',emoji:'🚜'},
+  // 14
+  {id:14,category:'agro',brand:'Liqui Moly',name:'Liqui Moly Тракторна 15W-40 / 10л',desc:'Для двигунів МТЗ-80/82, МТЗ-1025, ЮМЗ-6. Захист поршнів та гільз циліндрів.',specs:['API CF','CCMC D4','MIL-L-2104E'],price:1950,badge:'',badgeText:'',img:'https://images.prom.ua/2786952584_w640_h640_2786952584.jpg',emoji:'🚜'},
+  // 15
+  {id:15,category:'agro',brand:'Shell',name:'Shell Spirax S4 TXM 10W-30 / 20л',desc:'UTTO для тракторів зі спільною гідравлічно-трансмісійною системою.',specs:['UTTO','John Deere J20C/D','Ford M2C 134-D','ZF TE-ML 06B'],price:4600,badge:'',badgeText:'',img:'https://www.ua.shell/business-customers/lubricants-for-business/lubricants-product-range/rimula-truck-heavy-duty-engine-oil/synthetic-technology-oils/shell-rimula-r6-lm-10w-40/_jcr_content/root/main/section_copy/standalone_asset.shellimg.jpeg/1722869456039/rimula-r6-lm.jpeg?imdensity=1&imwidth=509&impolicy=amidala-image',emoji:'🚜'},
+  // 16
+  {id:16,category:'agro',brand:'Castrol',name:'Castrol Agri MP 15W-40 / 10л',desc:'Для навантажувачів, культиваторів, міні-тракторів. Захист від зносу.',specs:['API CF','UTTO','John Deere J27'],price:2100,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/345764.jpg',emoji:'🚜'},
+  // 17
+  {id:17,category:'agro',brand:'Total',name:'Total Dynatrans MPV 10W-40 / 20л',desc:'Для трансмісій і мостів сільгосптехніки. Рівний хід при навантаженнях.',specs:['ZF TE-ML 05C/06B','John Deere J20C','Case MS-1207'],price:4300,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/573_0.jpg',emoji:'🚜'},
+  // 18
+  {id:18,category:'agro',brand:'Mobil',name:'Mobil Agri Extra 10W-40 / 20л',desc:'Всесезонна олива для двигунів, трансмісій і гідравліки. Один продукт замість трьох.',specs:['API CJ-4','UTTO','Allison C4','Cat TO-4'],price:3950,badge:'badge-new',badgeText:'Новинка',img:'https://s.ek.ua/jpg/350933.jpg',emoji:'🚜'},
+  // 19
+  {id:19,category:'truck',brand:'Shell',name:'Shell Rimula R6 LM 10W-40 / 20л',desc:'Для вантажівок Euro VI — Scania, Volvo, Mercedes Actros, MAN, DAF. Підтримує DPF.',specs:['ACEA E6/E9','Scania LDF-3','Volvo VDS-4','MB 228.51'],price:6800,badge:'badge-hit',badgeText:'Хіт',img:'https://liquimoly-shop.com.ua/upload/iblock/31b/wz81h10ww5z4n0yarouj14fnfo0yu4yq/liqui_moly_lkw_leichtlauf_motoroil_10w_40_20l.jpg',emoji:'🚛'},
+  // 20
+  {id:20,category:'truck',brand:'Mobil',name:'Mobil Delvac 1 5W-40 / 20л',desc:'Синтетика для важких умов. Scania, Volvo, MAN Euro V/VI. Інтервал до 100 000 км.',specs:['ACEA E4/E7','Scania LDF-2','Volvo VDS-3','MB 228.5'],price:8200,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/350254.jpg',emoji:'🚛'},
+  // 21
+  {id:21,category:'truck',brand:'Castrol',name:'Castrol Vecton 10W-40 / 20л',desc:'Для вантажівок з тривалими пробігами. Стабільність оливи весь інтервал.',specs:['ACEA E7','Volvo VDS-3','MB 228.3','MAN M3275-1'],price:5900,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/344919.jpg',emoji:'🚛'},
+  // 22
+  {id:22,category:'truck',brand:'Total',name:'Total Rubia TIR 8600 10W-40 / 20л',desc:'Напівсинтетика для вантажних авто. Гірські дороги, перевантаження. Renault, Iveco.',specs:['ACEA E7/E9','Renault VI RLD-3','MB 228.3','MAN M 3275'],price:5400,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/571_0.png',emoji:'🚛'},
+  // 23
+  {id:23,category:'truck',brand:'Liqui Moly',name:'Liqui Moly Truck 10W-40 / 20л',desc:'Синтетика для вантажівок і автобусів Euro IV/V. DAF, Iveco, Scania, Volvo.',specs:['ACEA E4/E7','Volvo VDS-3','MB 228.5','MAN M3277'],price:7100,badge:'',badgeText:'',img:'https://infoshina.com.ua/media/images/thumbs/Total-Quartz-7000-Energy-10W-40-20_MyRNQMX.600x600.webp?v=187647153',emoji:'🚛'},
+  // 24
+  {id:24,category:'truck',brand:'Shell',name:'Shell Rimula R3 X 15W-40 / 20л',desc:'Для вантажівок старшого покоління — КАМАЗ, МАЗ, ЗіЛ, ГАЗ.',specs:['API CF-4/SG','ACEA E3/B3','Cummins 20077','Volvo VDS-2'],price:3700,badge:'',badgeText:'',img:'https://s.ek.ua/jpg_zoom1/949210.jpg',emoji:'🚛'},
+  // 25
+  {id:25,category:'truck',brand:'Mobil',name:'Mobil Delvac MX Extra 10W-40 / 20л',desc:'Для вантажних авто з великим пробігом. Стабільна в\'язкість при тривалій роботі.',specs:['ACEA E7','MB 228.3','Volvo VDS-3','Cummins CES 20076'],price:5100,badge:'',badgeText:'',img:'https://content2.rozetka.com.ua/goods/images/big/540851828.jpg',emoji:'🚛'},
+  // 26
+  {id:26,category:'truck',brand:'Castrol',name:'Castrol Vecton Long Drain 10W-40 / 20л',desc:'Для фур — інтервал 100 000+ км. Чистота двигуна весь час.',specs:['ACEA E6/E9','Volvo VDS-4.5','Renault VI RLD-4','MB 228.51'],price:7600,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/s/h/shell_spirax_s4_g_75w-90_1_3.webp',emoji:'🚛'},
+  // 27
+  {id:27,category:'truck',brand:'Total',name:'Total Rubia TIR 9200 FE 10W-30 / 20л',desc:'Паливоекономічна для нових Euro VI. Scania, Volvo, Renault Trucks.',specs:['ACEA E6','Scania LDF-4','Volvo VDS-4.5','Renault VI RLD-4'],price:8900,badge:'badge-new',badgeText:'Новинка',img:'https://www.castrol.com/content/dam/castrol/country-sites-new/ru_kz/central-asia/home/oil-finder-images/caspain/VECTONLONGDrain10W-40E6E9-UKR.jpg',emoji:'🚛'},
+  // 28
+  {id:28,category:'truck',brand:'Shell',name:'Shell Spirax S5 ATEFL 75W / 20л',desc:'Трансмісійна олива для АКПП вантажівок. ZF Astronic, Eaton Fuller.',specs:['ZF TE-ML 02C','MB 236.14','API GL-4'],price:9200,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/5/153519_mobil_atf_3309_1l.webp',emoji:'🚛'},
+  // 29
+  {id:29,category:'trans',brand:'ZF',name:'ZF LifeguardFluid 8 / 1л',desc:'Оригінальна рідина для АКПП ZF 8HP. BMW, Audi, Porsche, Land Rover, Jaguar, Maserati.',specs:['ZF TE-ML 14B','BMW 83220440214','Audi G 052 529'],price:680,badge:'',badgeText:'',img:'https://s.ek.ua/jpg/782822.jpg',emoji:'⚙️'},
+  // 30
+  {id:30,category:'trans',brand:'Shell',name:'Shell Spirax S4 G 75W-90 / 4л',desc:'Синтетична олива для механічних КПП та мостів. Subaru, Mitsubishi, Toyota.',specs:['API GL-4/GL-5','MT-1','ZF TE-ML 16C'],price:890,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/9/1995590_3.webp',emoji:'⚙️'},
+  // 31
+  {id:31,category:'trans',brand:'Castrol',name:'Castrol BOT 530 / 4л',desc:'Рідина для АКПП Honda, Acura. Оригінальний аналог Honda ATF Z1.',specs:['Honda ATF Z1','Honda ATF DW-1'],price:720,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/7ac943dd0568fe9c8742046ea7a5bdc8/1/9/1995593_3.webp',emoji:'⚙️'},
+  // 32
+  {id:32,category:'trans',brand:'Mobil',name:'Mobil ATF 3309 / 4л',desc:'Для АКПП Toyota, Lexus, Hyundai, Kia. Замінник Toyota ATF WS, Hyundai SP-IV.',specs:['Toyota ATF WS','Hyundai SP-IV','Aisin ATF 6+'],price:760,badge:'',badgeText:'',img:'https://shellig.nyc3.cdn.digitaloceanspaces.com/img/product/antyfryz-shell-premium-antifreeze-774-c-p-ready-to-use_1_1741705114532',emoji:'⚙️'},
+  // 33
+  {id:33,category:'trans',brand:'Total',name:'Total Transmission DUAL 9 FE / 4л',desc:'Рідина для подвійних зчеплень DSG/DCT. VW, Audi, BMW, Ford PowerShift.',specs:['VW TL 521 82','BMW 83 22 2147 477','Ford M2C936-A'],price:1100,badge:'badge-new',badgeText:'Новинка',img:'https://cdn.27.ua/799/49/48/1132872_2.jpeg',emoji:'⚙️'},
+  // 34
+  {id:34,category:'trans',brand:'Liqui Moly',name:'Liqui Moly Top Tec ATF 1800 / 4л',desc:'Для сучасних АКПП. Замінює Dexron VI, Mercon V, ATF+4.',specs:['Dexron VI','Mercon V','ATF+4','Allison C4'],price:820,badge:'',badgeText:'',img:'https://images.prom.ua/3552883576_antifriz-sfi-g12.jpg',emoji:'⚙️'},
+  // 35
+  {id:35,category:'trans',brand:'Shell',name:'Shell Spirax S6 GXME 75W-80 / 4л',desc:'Синтетична олива для МКПП Mercedes, MAN, Volvo, Scania. Знижує витрату палива.',specs:['MB 235.8','MAN 341 E4','Volvo 97307','ZF TE-ML 02E'],price:1240,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/603_0.jpg',emoji:'⚙️'},
+  // 36
+  {id:36,category:'antifreeze',brand:'Shell',name:'Shell Premium Antifreeze G11 / 5л',desc:'Охолоджувальна рідина G11 (зелена). Авто до 2000 р.в. Захист від -37°C до +135°C.',specs:['ASTM D3306','BS 6580','G11'],price:340,badge:'',badgeText:'',img:'https://s.ek.ua/jpg_zoom1/1242123.jpg',emoji:'🧊'},
+  // 37
+  {id:37,category:'antifreeze',brand:'Shell',name:'Shell Antifreeze G13 / 5л',desc:'Найновіший G13 на основі гліцерину. VW, Audi, Škoda, SEAT з 2013 р.',specs:['G13','VW TL 774-J'],price:550,badge:'badge-new',badgeText:'Новинка',img:'https://img.autoklad.ua/imgbank/Image/pic/liqui-moly/8841.JPG',emoji:'🧊'},
+  // 38
+  {id:38,category:'antifreeze',brand:'Total',name:'Total Coolelf Auto Supra G12+ / 5л',desc:'Антифриз G12+ (рожевий) для сучасних двигунів. Renault, Peugeot, VW, BMW. До -40°C.',specs:['G12+','VW TL 774-F','MB 325.6','ASTM D3306'],price:420,badge:'',badgeText:'',img:'https://content1.rozetka.com.ua/goods/images/big/474529529.jpg',emoji:'🧊'},
+  // 39
+  {id:39,category:'antifreeze',brand:'Castrol',name:'Castrol Radicool NF / 5л',desc:'OAT антифриз G12++ без нітритів і амінів. Алюмінієві блоки. Toyota, Honda, Ford.',specs:['G12++','ASTM D3306','BS 6580','OAT'],price:460,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/605_0.jpg',emoji:'🧊'},
+  // 40
+  {id:40,category:'antifreeze',brand:'Mobil',name:'Mobil Antifreeze для вантажівок / 20л',desc:'Для важких дизельних двигунів вантажівок і тракторів. Захист від кавітації гільз.',specs:['ASTM D6210','Cummins ES-1','John Deere HJ-200D','Volvo VCS'],price:1800,badge:'',badgeText:'',img:'https://media.avtozvuk.ua/media/cache/medium/uploads/76/1259473/c6c3cd094a1069526294096e60e5a466.jpg',emoji:'🧊'},
+  // 41
+  {id:41,category:'antifreeze',brand:'Liqui Moly',name:'Liqui Moly KFS 2000 SF / 1.5л',desc:'Готовий антифриз G12. Розведений до -30°C. Зручний для доливання.',specs:['G12','VW TL 774-D','Готовий до застосування'],price:180,badge:'',badgeText:'',img:'https://dynamica.ua/wp-content/uploads/2019/07/600-front-57.jpg',emoji:'🧊'},
+  // 42
+  {id:42,category:'grease',brand:'Shell',name:'Shell Alvania RL 3 / 4кг',desc:'Літієва змазка для підшипників коліс, шарнірів підвіски, рульових тяг.',specs:['NLGI 3','DIN 51825','ISO L-XBCEB3'],price:520,badge:'',badgeText:'',img:'https://images.prom.ua/5318769937_w640_h640_5318769937.jpg',emoji:'🛢️'},
+  // 43
+  {id:43,category:'grease',brand:'Castrol',name:'Castrol LMX Li-Complexe / 0.5кг',desc:'Змазка на основі комплексного літію. ШРУС, шарніри і підшипники. До +220°C.',specs:['NLGI 2','DIN 51825 KP2K','ISO L-XBCEB2'],price:160,badge:'',badgeText:'',img:'https://oiler.pro/media/catalog/product/cache/2fbce5c824613a877758e7a17319e4f2/l/i/liqui_moly_lm50_3407_s-500x500_1.webp',emoji:'🛢️'},
+  // 44
+  {id:44,category:'grease',brand:'Liqui Moly',name:'Liqui Moly Langzeit-Fett 0 / 1кг',desc:'Довгострокова змазка для рульових рейок, напрямних супорта, роз\'ємів.',specs:['NLGI 0','VKIS 5250'],price:380,badge:'',badgeText:'',img:'https://images.prom.ua/2121635800_w640_h640_2121635800.jpg',emoji:'🛢️'},
+  // 45
+  {id:45,category:'grease',brand:'Total',name:'Total Multis EP 2 / 4кг',desc:'Змазка EP для підшипників, хрестовин карданного вала. Трактори, вантажівки.',specs:['NLGI 2','DIN 51825 KP2K-30','ASTM D-4950 LB'],price:480,badge:'',badgeText:'',img:'https://lm-shop.com.ua/wp-content/uploads/2019/10/Sprej-ohladitel_Dlya_Remontnyh_Rabot_-_Kalte-Spray_0.4_L.jpg',emoji:'🛢️'},
+  // 46
+  {id:46,category:'grease',brand:'Mobil',name:'Mobilgrease XHP 222 / 4кг',desc:'Преміум змазка для важких умов. Підшипники коліс вантажівок і будтехніки.',specs:['NLGI 2','ISO VG 220','SKF LGEP 2'],price:680,badge:'',badgeText:'',img:'https://liquimoly.ua/shop/image/cache/catalog/image/cache/data/bosslabel/1520n-500x500.webp',emoji:'🛢️'},
+  // 47
+  {id:47,category:'grease',brand:'Liqui Moly',name:'Liqui Moly LM 47 Molykote / 0.5кг',desc:'Змазка з молібденом для зубчастих передач і різьбових з\'єднань.',specs:['MoS2','DIN 51826 GPM1K-30'],price:210,badge:'',badgeText:'',img:'https://castroloil.com.ua/images/product_images/popup_images/606_0.jpg',emoji:'🛢️'},
+  // 48 - без фото
+  {id:48,category:'grease',brand:'Shell',name:'Shell Gadus S3 V220C 2 / 18кг',desc:'Промислова змазка для екскаваторів, кранів, будтехніки та аграрних машин.',specs:['NLGI 2','ISO VG 220','DIN 51825','ASTM D-4950'],price:2800,badge:'',badgeText:'',img:'',emoji:'🛢️'},
+  // 49 - без фото
+  {id:49,category:'grease',brand:'Total',name:'Total Aerosol TS Spray / 0.4л',desc:'Аерозольна змазка для замків, петель, ланцюгів. Витісняє вологу. Ефект 6 місяців.',specs:['Антикорозійний','Витискувач вологи'],price:95,badge:'',badgeText:'',img:'',emoji:'🛢️'},
+  // 50 - без фото
+  {id:50,category:'grease',brand:'Liqui Moly',name:'Liqui Moly Copper Spray / 0.25л',desc:'Мідний спрей для гальмівних колодок, різьбових з\'єднань. До +1100°C.',specs:['Мідна основа','До +1100°C'],price:145,badge:'',badgeText:'',img:'',emoji:'🛢️'},
+  // 51 - без фото
+  {id:51,category:'grease',brand:'Castrol',name:'Castrol Moly Grease / 0.5кг',desc:'Молібденова змазка для ШРУСів і карданних шарнірів. Захист від задирів.',specs:['MoS2','NLGI 2','DIN 51825'],price:190,badge:'',badgeText:'',img:'',emoji:'🛢️'},
+  // 52 - без фото
+  {id:52,category:'grease',brand:'Total',name:'Total Dynatrans EP / 20л',desc:'Трансмісійна олива для мостів і редукторів сільгосптехніки та вантажівок.',specs:['API GL-5','ZF TE-ML 05A','MAN 342 type M'],price:3200,badge:'',badgeText:'',img:'',emoji:'🛢️'},
 ];
 
 const CATEGORY_LABELS = {
@@ -210,11 +262,14 @@ const CATEGORY_LABELS = {
 let activeCat = 'all', activeBrand = 'all', sortMode = 'default';
 
 function productCard(p) {
-  const img = `<div class="product-no-img">${p.emoji}</div>`;
+  const imgHtml = p.img
+    ? `<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+    : '';
+  const fallback = `<div class="product-no-img" style="${p.img ? 'display:none' : ''}">${p.emoji}</div>`;
   const badge = p.badge ? `<div class="product-badge ${p.badge}">${p.badgeText}</div>` : '';
   const specs = p.specs.map(s => `<span class="spec-tag">${s}</span>`).join('');
   return `<div class="product-card">
-    <div class="product-img-wrap">${img}${badge}</div>
+    <div class="product-img-wrap">${imgHtml}${fallback}${badge}</div>
     <div class="product-body">
       <div class="product-brand">${p.brand}</div>
       <div class="product-name">${p.name}</div>
@@ -243,21 +298,9 @@ function buildSidebar() {
   }).join('');
 }
 
-function setCat(cat, el) {
-  activeCat = cat;
-  document.querySelectorAll('#catList .sb-item').forEach(i => i.classList.remove('active'));
-  el.classList.add('active'); applyFilters();
-}
-function setBrand(b, el) {
-  activeBrand = b;
-  document.querySelectorAll('#brandList .sb-item').forEach(i => i.classList.remove('active'));
-  el.classList.add('active'); applyFilters();
-}
-function sortBy(mode, el) {
-  sortMode = mode;
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active'); applyFilters();
-}
+function setCat(cat, el) { activeCat = cat; document.querySelectorAll('#catList .sb-item').forEach(i => i.classList.remove('active')); el.classList.add('active'); applyFilters(); }
+function setBrand(b, el) { activeBrand = b; document.querySelectorAll('#brandList .sb-item').forEach(i => i.classList.remove('active')); el.classList.add('active'); applyFilters(); }
+function sortBy(mode, el) { sortMode = mode; document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); applyFilters(); }
 function clearSearch() { document.getElementById('searchInput').value = ''; applyFilters(); }
 function resetFilters() {
   activeCat = 'all'; activeBrand = 'all'; sortMode = 'default';
@@ -277,8 +320,7 @@ function applyFilters() {
     if (activeCat !== 'all' && p.category !== activeCat) return false;
     if (activeBrand !== 'all' && p.brand !== activeBrand) return false;
     if (p.price < mn || p.price > mx) return false;
-    if (q && !p.name.toLowerCase().includes(q) && !p.brand.toLowerCase().includes(q) &&
-        !p.desc.toLowerCase().includes(q) && !p.specs.some(s => s.toLowerCase().includes(q))) return false;
+    if (q && !p.name.toLowerCase().includes(q) && !p.brand.toLowerCase().includes(q) && !p.desc.toLowerCase().includes(q) && !p.specs.some(s => s.toLowerCase().includes(q))) return false;
     return true;
   });
   if (sortMode === 'price-asc') res.sort((a,b) => a.price - b.price);
@@ -291,27 +333,14 @@ function applyFilters() {
     : res.map(productCard).join('');
 }
 
-function openModal(name) {
-  document.getElementById('modalProduct').textContent = name;
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
+function openModal(name) { document.getElementById('modalProduct').textContent = name; document.getElementById('modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
 document.addEventListener('click', e => { if (e.target === document.getElementById('modal')) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-});
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60); });
 function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-window.addEventListener('load', () => {
-  setTimeout(() => { const l = document.getElementById('loader'); if(l) l.classList.add('hidden'); }, 1200);
-});
+window.addEventListener('load', () => { setTimeout(() => { const l = document.getElementById('loader'); if(l) l.classList.add('hidden'); }, 1200); });
 
-// Перевірка URL параметра і запуск
 const urlParams = new URLSearchParams(window.location.search);
 const catParam = urlParams.get('cat');
 if (catParam && CATEGORY_LABELS[catParam]) activeCat = catParam;
